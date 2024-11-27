@@ -8,5 +8,7 @@ void test_addition(void) {
     TEST_ASSERT_EQUAL_INT(12, addition(6, 6));
     TEST_ASSERT_EQUAL_INT(-10, addition(-5, -5));
     TEST_ASSERT_EQUAL_INT(20, addition(15, 5));
+
+
 }
 

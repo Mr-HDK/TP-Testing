@@ -34,11 +34,11 @@ Pour travailler efficacement sur ce TP, suivez les étapes ci-dessous.
 
 Commencez par cloner le dépôt GitHub contenant le TP :
 
-`git clone https://github.com/Mr-HDK/TP-Testing-3ISEOC.git`
+`git clone https://github.com/Mr-HDK/TP-Testing.git`
 
 Une fois le dépôt cloné, accédez au dossier du projet :
 
-`cd TP-Testing-3ISEOC`
+`cd TP-Testing`
 
 * * * * *
 
