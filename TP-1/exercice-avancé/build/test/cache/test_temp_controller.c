@@ -1,4 +1,4 @@
-#include "mock_temp_sensor.h"
+#include "build/test/mocks/mock_temp_sensor.h"
 #include "src/temp_controller.h"
 #include "C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 

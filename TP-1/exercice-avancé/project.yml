@@ -74,6 +74,7 @@
   :gcovr:
     :html_medium_threshold: 75
     :html_high_threshold: 90
+    :html_output: build/artifacts/coverage/index.html
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.
@@ -91,6 +92,19 @@
   :system: []    # for example, you might list 'm' to grab the math library
   :test: []
   :release: []
+
+:release_build:
+  :output: MyApp.out
+  :use_assembly: FALSE
+
+:paths:
+  :test:
+    - +:test/**
+    - -:test/support
+  :source:
+    - src/**
+  :support:
+    - test/support
 
 :plugins:
   :gcov:
