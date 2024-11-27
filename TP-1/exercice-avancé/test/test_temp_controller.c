@@ -4,22 +4,23 @@
 
 void setUp(void) {
     // Initialisez les mocks "Bonne pratique"
-    // ??
+    mock_temp_sensor_Init();
 }
 
 void tearDown(void) {
     // Nettoiez les mocks "Bonne pratique"
-    // ??
+    mock_temp_sensor_Verify();
+    mock_temp_sensor_Destroy();
 }
 
 void test_check_temperature_should_return_1_when_too_hot(void) {
-    read_temperature_sensor_ExpectAndReturn(/* Température élevée */);
-    TEST_ASSERT_EQUAL(/* Résultat attendu */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(80); // 80°C
+    TEST_ASSERT_EQUAL(1, check_temperature());
 }
 
 void test_check_temperature_should_return_minus_1_when_too_cold(void) {
-    read_temperature_sensor_ExpectAndReturn(/* Température basse */);
-    TEST_ASSERT_EQUAL(/* Résultat attendu */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(-10); // -10°C
+    TEST_ASSERT_EQUAL(-1, check_temperature());
 }
 
 void test_check_temperature_should_return_0_when_normal(void) {
