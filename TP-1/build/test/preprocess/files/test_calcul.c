@@ -18,13 +18,17 @@ void test_addition(void) {
 
 
 
-    UnityAssertEqualNumber((UNITY_INT)((19)), (UNITY_INT)((addition(12, 7))), (
+    UnityAssertEqualNumber((UNITY_INT)((-14)), (UNITY_INT)((addition(-7, -7))), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(8), UNITY_DISPLAY_STYLE_INT);
 
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((addition(0, -1))), (
 
+   ((void *)0)
+
+   ), (UNITY_UINT)(9), UNITY_DISPLAY_STYLE_INT);
 
 
 
