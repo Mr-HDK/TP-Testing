@@ -9,6 +9,7 @@ int check_temperature(void) {
     } else if (temperature < 15) {
         return -1; // Trop froid
     } else {
-        return 0; // Température normale
+       return 0; // Température normale
     }
 }
+
