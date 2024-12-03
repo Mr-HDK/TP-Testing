@@ -3,4 +3,4 @@
 
 int check_temperature(void);
 
-#endif 
+#endif
