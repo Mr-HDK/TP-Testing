@@ -5,9 +5,7 @@
 
 void setUp(void) {
 
-
-
-
+    mock_temp_sensor_Init();
 
 }
 
@@ -15,9 +13,9 @@ void setUp(void) {
 
 void tearDown(void) {
 
+    mock_temp_sensor_Verify();
 
-
-
+    mock_temp_sensor_Destroy();
 
 }
 
@@ -25,13 +23,13 @@ void tearDown(void) {
 
 void test_check_temperature_should_return_1_when_too_hot(void) {
 
-    read_temperature_sensor_CMockExpectAndReturn(16, 35);
+    read_temperature_sensor_CMockExpectAndReturn(15, 35);
 
     UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(17), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(16), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -39,13 +37,13 @@ void test_check_temperature_should_return_1_when_too_hot(void) {
 
 void test_check_temperature_should_return_minus_1_when_too_cold(void) {
 
-    read_temperature_sensor_CMockExpectAndReturn(21, 10);
+    read_temperature_sensor_CMockExpectAndReturn(20, 10);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(22), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(21), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -53,13 +51,13 @@ void test_check_temperature_should_return_minus_1_when_too_cold(void) {
 
 void test_check_temperature_should_return_0_when_normal(void) {
 
-    read_temperature_sensor_CMockExpectAndReturn(26, 25);
+    read_temperature_sensor_CMockExpectAndReturn(25, 25);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(26), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -71,23 +69,23 @@ void test_check_temperature_should_return_0_when_normal(void) {
 
 void test_check_temperature_should_handle_exact_limits(void) {
 
-    read_temperature_sensor_CMockExpectAndReturn(33, 15);
+    read_temperature_sensor_CMockExpectAndReturn(32, 15);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(34), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(33), UNITY_DISPLAY_STYLE_INT);
 
 
 
-    read_temperature_sensor_CMockExpectAndReturn(36, 30);
+    read_temperature_sensor_CMockExpectAndReturn(35, 30);
 
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(37), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(36), UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -99,22 +97,22 @@ void test_check_temperature_should_handle_exact_limits(void) {
 
 void test_check_temperature_should_handle_sensor_failure(void) {
 
-    read_temperature_sensor_CMockExpectAndReturn(43, -41);
+    read_temperature_sensor_CMockExpectAndReturn(42, -41);
 
     UnityAssertEqualNumber((UNITY_INT)((-2)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(43), UNITY_DISPLAY_STYLE_INT);
 
 
 
-    read_temperature_sensor_CMockExpectAndReturn(46, 126);
+    read_temperature_sensor_CMockExpectAndReturn(45, 126);
 
     UnityAssertEqualNumber((UNITY_INT)((-2)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
 
 }
