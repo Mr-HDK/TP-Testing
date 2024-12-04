@@ -3,13 +3,12 @@
 #include "mock_temp_sensor.h"
 
 void setUp(void) {
-    // Initialisez les mocks "Bonne pratique"
-    // ??
+    mock_temp_sensor_Init();
 }
 
 void tearDown(void) {
-    // Nettoiez les mocks "Bonne pratique"
-    // ??
+    mock_temp_sensor_Verify();
+    mock_temp_sensor_Destroy();
 }
 
 void test_check_temperature_should_return_1_when_too_hot(void) {
