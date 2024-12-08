@@ -16,6 +16,7 @@ extern void test_check_temperature_should_return_1_when_too_hot(void);
 extern void test_check_temperature_should_return_minus_1_when_too_cold(void);
 extern void test_check_temperature_should_return_0_when_normal(void);
 extern void test_check_temperature_should_handle_exact_limits(void);
+extern void test_check_temperature_should_handle_extreme_values(void);
 
 
 /*=======Mock Management=====*/
@@ -34,6 +35,12 @@ static void CMock_Destroy(void)
 {
   mock_temp_sensor_Destroy();
 }
+
+/*=======Setup (stub)=====*/
+void setUp(void) {}
+
+/*=======Teardown (stub)=====*/
+void tearDown(void) {}
 
 /*=======Test Reset Options=====*/
 void resetTest(void);
@@ -83,10 +90,11 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_temp_controller.c");
-  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 15);
-  run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 20);
-  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 25);
-  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 32);
+  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 17);
+  run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 22);
+  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 27);
+  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 34);
+  run_test(test_check_temperature_should_handle_extreme_values, "test_check_temperature_should_handle_extreme_values", 52);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

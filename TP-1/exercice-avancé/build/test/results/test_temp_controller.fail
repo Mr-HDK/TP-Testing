@@ -1,0 +1,34 @@
+---
+:source:
+  :path: test
+  :file: test_temp_controller.c
+:successes:
+- :test: test_check_temperature_should_return_1_when_too_hot
+  :line: 17
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_return_minus_1_when_too_cold
+  :line: 22
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_return_0_when_normal
+  :line: 27
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_handle_exact_limits
+  :line: 34
+  :message: ''
+  :unity_test_time: 0
+:failures:
+- :test: test_check_temperature_should_handle_extreme_values
+  :line: 55
+  :message: Expected 0 Was -1
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 4
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.0013276530007715337

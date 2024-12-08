@@ -92,7 +92,10 @@
   :test: []
   :release: []
   
-
+:gcov:
+  :utilities:
+    - gcovr           # Use gcovr to create the specified reports (default).
+    - ReportGenerator # Use ReportGenerator to create the specified reports.
     
 :plugins:
   :load_paths:
@@ -100,8 +103,6 @@
   :enabled:
     - stdout_pretty_tests_report
     - module_generator
-:gcov:
-  :utilities:
-    - gcovr           # Use gcovr to create the specified reports (default).
-    - ReportGenerator # Use ReportGenerator to create the specified reports.    
+    - gcov
+   
 ...
