@@ -1,0 +1,30 @@
+---
+:source:
+  :path: test
+  :file: test_system.c
+:successes: []
+:failures:
+- :test: test_valid_sensor_value_workflow
+  :line: 20
+  :message: Function is_valid_value.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_invalid_sensor_value_workflow
+  :line: 43
+  :message: Function is_valid_value.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_boundary_conditions
+  :line: 61
+  :message: Function is_valid_value.  Called more times than expected.
+  :unity_test_time: 0
+- :test: test_complete_processing_chain
+  :line: 82
+  :message: Function is_valid_value.  Called more times than expected.
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 4
+  :passed: 0
+  :failed: 4
+  :ignored: 0
+:stdout: []
+:time: 0.09209660000487929
