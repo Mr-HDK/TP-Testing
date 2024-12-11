@@ -10,7 +10,7 @@ void test_addition(void) {
 
    ), (UNITY_UINT)(5), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((17)), (UNITY_INT)((addition(10, 7))), (
+    UnityAssertEqualNumber((UNITY_INT)((17)), (UNITY_INT)((addition(10,-7))), (
 
    ((void *)0)
 
