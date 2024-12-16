@@ -63,7 +63,7 @@ Vous allez également explorer deux aspects importants de la qualité logicielle
 
 ## Travail demandé  
 1. Écrivez les tests nécessaires dans le dossier `test/`.  
-2. Configurez le fichier `project.yml`.<>
+2. Configurez le fichier `project.yml`.
 3. Générez des rapports de couverture avec GCOVR et GCOV.  
 4. Analysez le code avec cppcheck et proposez des corrections si nécessaires. (vous pouvez également utiliser un autre code C/C++ de votre choix à analyser).
 5. Ajoutez des captures d'écran dans le dossier `img/`.

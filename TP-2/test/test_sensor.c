@@ -1,7 +1,10 @@
 #include "unity.h"
 #include "sensor.h"
+#include <stdlib.h>
 
-void setUp(void) {} // good practice
+void setUp(void) {      // good practice 
+    srand(42);          // Fixed seed for reproducibility
+} 
 void tearDown(void) {} // good practice
 
 
