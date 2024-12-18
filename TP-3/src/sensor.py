@@ -1,8 +1,12 @@
 import random
 
-def read_temperature():
+def read_temperature(custom_value=None):
     """
     Simule la lecture d'une température par un capteur.
-    Retourne une température aléatoire dans la plage [0, 150]°C.
+    Si une valeur personnalisée est fournie, elle est utilisée.
+    Sinon, retourne une température aléatoire dans la plage [0, 150]°C.
     """
-    return random.uniform(0, 150)
+    if custom_value is not None:
+        return float(custom_value)
+    return random.uniform(0, 150)  # Dépasse la plage valide [0, 100]°C 
+                                   # à vous de la changer.
