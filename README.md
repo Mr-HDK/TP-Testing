@@ -99,6 +99,8 @@ Pour assurer un suivi efficace, voici comment je fournirai mes retours :
 - **Issues :**  
  Si vous avez des questions, des problèmes ou besoin de clarifications, utilisez la section **Issues** du dépôt GitHub. Je ferai de mon mieux pour répondre et clarifier vos questions.
 
+Vous pouvez me contacter par mail ou via [linkedin](https://www.linkedin.com/in/youssefhaddouk/).
+
 ---
 
 ## TP-1 : Introduction au Testing et Git
