@@ -2,13 +2,19 @@
 #include "temp_sensor.h"
 
 int check_temperature(void) {
-    int temperature = read_temperature_sensor();
+    int temp = read_temperature_sensor();
 
-    if (temperature > 30) {
+    // Vérification des limites matérielles
+    if (temp > 125 || temp < -40) {
+        return -2; // Erreur capteur
+    }
+
+    // Vérification des plages normales
+    if (temp > 80) {
         return 1; // Trop chaud
-    } else if (temperature < 15) {
+    } else if (temp < 0) {
         return -1; // Trop froid
     } else {
-        return 0; // Température normale
+        return 0; // Normal
     }
 }
