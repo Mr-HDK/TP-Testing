@@ -19,16 +19,16 @@
   :line: 34
   :message: ''
   :unity_test_time: 0
-:failures:
 - :test: test_check_temperature_should_handle_extreme_values
-  :line: 55
-  :message: Expected 0 Was -1
+  :line: 52
+  :message: ''
   :unity_test_time: 0
+:failures: []
 :ignores: []
 :counts:
   :total: 5
-  :passed: 4
-  :failed: 1
+  :passed: 5
+  :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0013276530007715337
+:time: 0.0013326290008990327

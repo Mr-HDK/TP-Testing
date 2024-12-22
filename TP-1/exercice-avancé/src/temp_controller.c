@@ -3,6 +3,9 @@
 
 int check_temperature(void) {
     int temperature = read_temperature_sensor();
+    if (temperature > 125 || temperature < -40) {
+        return -2; // Valeur hors des limites matérielles
+    }
 
     if (temperature > 30) {
         return 1; // Trop chaud
@@ -11,4 +14,7 @@ int check_temperature(void) {
     } else {
         return 0; // Température normale
     }
+    
+    
+    
 }

@@ -36,12 +36,6 @@ static void CMock_Destroy(void)
   mock_temp_sensor_Destroy();
 }
 
-/*=======Setup (stub)=====*/
-void setUp(void) {}
-
-/*=======Teardown (stub)=====*/
-void tearDown(void) {}
-
 /*=======Test Reset Options=====*/
 void resetTest(void);
 void resetTest(void)

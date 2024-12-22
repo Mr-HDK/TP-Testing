@@ -1,6 +1,32 @@
 #include "build/test/mocks/mock_temp_sensor.h"
 #include "src/temp_controller.h"
 #include "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
+
+
+void setUp(void) {
+
+
+
+    mock_temp_sensor_Init();
+
+}
+
+
+
+void tearDown(void) {
+
+
+
+
+
+    mock_temp_sensor_Verify();
+
+    mock_temp_sensor_Destroy();
+
+}
+
+
+
 void test_check_temperature_should_return_1_when_too_hot(void) {
 
     read_temperature_sensor_CMockExpectAndReturn(18, 31);
@@ -77,9 +103,9 @@ void test_check_temperature_should_handle_extreme_values(void) {
 
 
 
-    read_temperature_sensor_CMockExpectAndReturn(54, -100);
+    read_temperature_sensor_CMockExpectAndReturn(54, -50);
 
-    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((check_temperature())), (
+    UnityAssertEqualNumber((UNITY_INT)((-2)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 
@@ -89,9 +115,9 @@ void test_check_temperature_should_handle_extreme_values(void) {
 
 
 
-    read_temperature_sensor_CMockExpectAndReturn(58, 100);
+    read_temperature_sensor_CMockExpectAndReturn(58, 220);
 
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((check_temperature())), (
+    UnityAssertEqualNumber((UNITY_INT)((-2)), (UNITY_INT)((check_temperature())), (
 
    ((void *)0)
 

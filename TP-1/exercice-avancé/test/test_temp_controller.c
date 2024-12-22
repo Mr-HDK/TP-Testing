@@ -50,12 +50,12 @@ void test_check_temperature_should_handle_exact_limits(void) {
 */
 
 void test_check_temperature_should_handle_extreme_values(void) {
-    // Température minimale possible
-    read_temperature_sensor_ExpectAndReturn(-100); // Hors gamme
-    TEST_ASSERT_EQUAL(0, check_temperature());
+    
+    read_temperature_sensor_ExpectAndReturn(-50); // Hors gamme
+    TEST_ASSERT_EQUAL(-2, check_temperature()); // Retour attendu pour une valeur hors gamme
 
-    // Température maximale possible
-    read_temperature_sensor_ExpectAndReturn(100); // Hors gamme
-    TEST_ASSERT_EQUAL(1, check_temperature());
+    
+    read_temperature_sensor_ExpectAndReturn(220); // Hors gamme
+    TEST_ASSERT_EQUAL(-2, check_temperature()); 
 }
 
