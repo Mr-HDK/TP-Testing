@@ -1,0 +1,2 @@
+Logged Value: 80
+ALERT: Value 80 exceeds the threshold!
