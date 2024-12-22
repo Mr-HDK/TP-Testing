@@ -1,0 +1,19 @@
+---
+:source:
+  :path: test
+  :file: test_controller.c
+:successes: []
+:failures:
+- :test: test_sensor_and_controller_integration
+  :line: 15
+  :message: Invalid sensor value encountered.
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout:
+- 'Sensor Value: 133'
+:time: 0.0013121489973855205
