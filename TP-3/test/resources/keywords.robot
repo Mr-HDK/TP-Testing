@@ -1,11 +1,11 @@
-*** Settings ***
-Library    ../src/sensor.py
-Library    ../src/actuator.py
-Library    ../src/notifier.py
-Library    ../src/utils.py
+* Settings *
+Library    ../../src/sensor.py
+Library    ../../src/actuator.py
+Library    ../../src/notifier.py
+Library    ../../src/utils.py
 Library    BuiltIn
 
-*** Keywords ***
+* Keywords *
 Simuler Lecture Température
     [Arguments]    ${custom_value}=None
     ${temperature}=    read_temperature    ${custom_value}
