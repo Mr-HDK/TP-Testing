@@ -1,0 +1,9 @@
+---
+src/controller.c:
+- TEST
+src/sensor.c:
+- TEST
+src/notifier.c:
+- TEST
+src/utils.c:
+- TEST

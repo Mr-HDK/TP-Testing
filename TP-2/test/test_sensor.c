@@ -22,3 +22,13 @@ void test_is_valid_value_identifies_correct_boundaries(void) {
     TEST_ASSERT_FALSE(is_valid_value(-1));  // Below lower boundary
     TEST_ASSERT_FALSE(is_valid_value(101)); // Above upper boundary
 }
+
+void test_read_sensor_handles_sensor_error(void) {
+    int value = read_sensor();
+    // Si une erreur se produit, la valeur retournée doit être -1
+    if (value == -1) {
+        TEST_FAIL_MESSAGE("Sensor error occurred: value is -1");
+    } else {
+        TEST_ASSERT(value >= 0 && value < 150);  // Si pas d'erreur, vérifier la plage de valeurs
+    }
+}

@@ -1,0 +1,22 @@
+---
+:source:
+  :path: test
+  :file: test_controller.c
+:successes:
+- :test: test_notify_threshold_exceeded_triggers_alert
+  :line: 11
+  :message: ''
+  :unity_test_time: 0
+:failures:
+- :test: test_notify_threshold_not_exceeded_does_not_trigger_alert
+  :line: 68
+  :message: 'Expected '''' Was ''Logged Value: 80\nALERT: Value 80 exceeds the threshold!\n'''
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 1
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 2.420934300054796

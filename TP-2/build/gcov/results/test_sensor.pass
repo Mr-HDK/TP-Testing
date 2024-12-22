@@ -1,0 +1,26 @@
+---
+:source:
+  :path: test
+  :file: test_sensor.c
+:successes:
+- :test: test_read_sensor_returns_within_expected_range
+  :line: 11
+  :message: ''
+  :unity_test_time: 0
+- :test: test_is_valid_value_identifies_correct_boundaries
+  :line: 18
+  :message: ''
+  :unity_test_time: 0
+- :test: test_read_sensor_handles_sensor_error
+  :line: 26
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.2220174000831321
