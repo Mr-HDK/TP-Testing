@@ -15,4 +15,8 @@
   :failed: 0
   :ignored: 0
 :stdout: []
+<<<<<<< HEAD
 :time: 0.11884250000002794
+=======
+:time: 0.013902099992264993
+>>>>>>> aa1579da8a3bfbac3ca71cc607b3d7b6ea8f60af

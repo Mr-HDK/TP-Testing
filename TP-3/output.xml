@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.8 on win32)" generated="2024-12-22T21:37:43.383796" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Sensor Fault" source="C:\Users\user\TP-Testing\TP-3\test\test_sensor_fault.robot">
+<test id="s1-t1" name="Gestion Des Capteurs Défectueux" line="11">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.424368" level="INFO">Vérification pour une température hors plage basse.</msg>
+<arg>Vérification pour une température hors plage basse.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.424368" elapsed="0.001024"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.425392" level="INFO">${temperature} = -100</msg>
+<var>${temperature}</var>
+<arg>${TEMP_INVALID_LOW}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.425392" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-22T21:37:43.426362" level="FAIL">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="FAIL" start="2024-12-22T21:37:43.426362" elapsed="0.000000">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Température non valide: ${temperature}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.427369" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.427369" elapsed="0.000000"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-22T21:37:43.426362" elapsed="0.001007">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</status>
+</kw>
+<msg time="2024-12-22T21:37:43.427369" level="INFO">${is_valid} = False</msg>
+<var>${is_valid}</var>
+<arg>Température Doit ÊTre Valide</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.425392" elapsed="0.001977"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${is_valid}</arg>
+<arg>${False}</arg>
+<arg>La température basse ${temperature}°C a été incorrectement validée comme valide.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.427369" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.428356" level="INFO">Validation réussie : la température basse -100°C est bien non valide.</msg>
+<arg>Validation réussie : la température basse ${temperature}°C est bien non valide.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.428356" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.428356" level="INFO">Vérification pour une température hors plage haute.</msg>
+<arg>Vérification pour une température hors plage haute.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.428356" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.429354" level="INFO">${temperature} = 200</msg>
+<var>${temperature}</var>
+<arg>${TEMP_INVALID_HIGH}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.428356" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-22T21:37:43.430351" level="FAIL">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="FAIL" start="2024-12-22T21:37:43.429354" elapsed="0.000997">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Température non valide: ${temperature}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.430351" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.430351" elapsed="0.000000"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-22T21:37:43.429354" elapsed="0.001995">TypeError: '&lt;=' not supported between instances of 'int' and 'str'</status>
+</kw>
+<msg time="2024-12-22T21:37:43.431349" level="INFO">${is_valid} = False</msg>
+<var>${is_valid}</var>
+<arg>Température Doit ÊTre Valide</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.429354" elapsed="0.001995"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${is_valid}</arg>
+<arg>${False}</arg>
+<arg>La température haute ${temperature}°C a été incorrectement validée comme valide.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.431349" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.432346" level="INFO">Validation réussie : la température haute 200°C est bien non valide.</msg>
+<arg>Validation réussie : la température haute ${temperature}°C est bien non valide.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.432346" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.432346" level="INFO">Vérification pour une valeur None (capteur défectueux).</msg>
+<arg>Vérification pour une valeur None (capteur défectueux).</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.432346" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.433343" level="INFO">${temperature} = None</msg>
+<var>${temperature}</var>
+<arg>${None}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.432346" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-22T21:37:43.433343" level="FAIL">TypeError: '&lt;=' not supported between instances of 'int' and 'NoneType'</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="FAIL" start="2024-12-22T21:37:43.433343" elapsed="0.000998">TypeError: '&lt;=' not supported between instances of 'int' and 'NoneType'</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Température non valide: ${temperature}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.434341" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-22T21:37:43.434341" elapsed="0.000000"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-22T21:37:43.433343" elapsed="0.000998">TypeError: '&lt;=' not supported between instances of 'int' and 'NoneType'</status>
+</kw>
+<msg time="2024-12-22T21:37:43.434341" level="INFO">${is_valid} = False</msg>
+<var>${is_valid}</var>
+<arg>Température Doit ÊTre Valide</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.433343" elapsed="0.000998"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${is_valid}</arg>
+<arg>${False}</arg>
+<arg>La température None a été incorrectement validée comme valide.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.434341" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-22T21:37:43.435338" level="INFO">Validation réussie : la température None est bien non valide.</msg>
+<arg>Validation réussie : la température None est bien non valide.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.435338" elapsed="0.000000"/>
+</kw>
+<doc>Teste le comportement du système avec des capteurs défectueux.</doc>
+<status status="PASS" start="2024-12-22T21:37:43.408686" elapsed="0.026652"/>
+</test>
+<status status="PASS" start="2024-12-22T21:37:43.384794" elapsed="0.051542"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Sensor Fault">Test Sensor Fault</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
