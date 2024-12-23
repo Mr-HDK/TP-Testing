@@ -80,7 +80,7 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_notifier.c");
-  run_test(test_notify_threshold_exceeded_triggers_alert, "test_notify_threshold_exceeded_triggers_alert", 8);
+  run_test(test_notify_threshold_exceeded_triggers_alert, "test_notify_threshold_exceeded_triggers_alert", 9);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

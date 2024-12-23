@@ -76,8 +76,8 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_controller.c");
-  run_test(test_sensor_and_controller_integration, "test_sensor_and_controller_integration", 8);
-  run_test(test_process_data_handles_edge_cases, "test_process_data_handles_edge_cases", 19);
+  run_test(test_sensor_and_controller_integration, "test_sensor_and_controller_integration", 11);
+  run_test(test_process_data_handles_edge_cases, "test_process_data_handles_edge_cases", 25);
 
   return UnityEnd();
 }

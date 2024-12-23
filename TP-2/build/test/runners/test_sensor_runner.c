@@ -76,8 +76,8 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_sensor.c");
-  run_test(test_read_sensor_returns_within_expected_range, "test_read_sensor_returns_within_expected_range", 8);
-  run_test(test_is_valid_value_identifies_correct_boundaries, "test_is_valid_value_identifies_correct_boundaries", 15);
+  run_test(test_read_sensor_returns_within_expected_range, "test_read_sensor_returns_within_expected_range", 11);
+  run_test(test_is_valid_value_identifies_correct_boundaries, "test_is_valid_value_identifies_correct_boundaries", 18);
 
   return UnityEnd();
 }

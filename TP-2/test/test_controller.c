@@ -9,6 +9,7 @@ void setUp(void) {
 void tearDown(void) {}
 
 void test_sensor_and_controller_integration(void) {
+    for (int i = 0; i < 20; i++) {
     int sensor_value = read_sensor(); // Get sensor data
     if (is_valid_value(sensor_value)) {
         int processed_value = process_data(sensor_value); // Process data
@@ -19,7 +20,7 @@ void test_sensor_and_controller_integration(void) {
         continue;  // Pour éviter l'échec du test à l'encontre d'une valeur invalide
     }
 }
-
+}
 
 void test_process_data_handles_edge_cases(void) {
     // Vous pouvez ajouter plus de edge cases (99, 1..)

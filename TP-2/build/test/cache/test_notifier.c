@@ -3,6 +3,8 @@
 #include "C:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
+
+
 void setUp(void) {}
 
 void tearDown(void) {}
@@ -15,7 +17,7 @@ void test_notify_threshold_exceeded_triggers_alert(void) {
 
 
 
-    log_data_CMockExpect(11, threshold_exceed_value);
+    log_data_CMockExpect(12, threshold_exceed_value);
 
     notify_threshold_exceeded(threshold_exceed_value);
 

@@ -77,9 +77,9 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_system.c");
-  run_test(test_valid_sensor_value_workflow, "test_valid_sensor_value_workflow", 10);
-  run_test(test_invalid_sensor_value_workflow, "test_invalid_sensor_value_workflow", 36);
-  run_test(test_boundary_conditions, "test_boundary_conditions", 57);
+  run_test(test_valid_sensor_value_workflow, "test_valid_sensor_value_workflow", 28);
+  run_test(test_invalid_sensor_value_workflow, "test_invalid_sensor_value_workflow", 42);
+  run_test(test_boundary_conditions, "test_boundary_conditions", 56);
 
   return UnityEnd();
 }

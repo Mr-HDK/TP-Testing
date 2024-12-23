@@ -2,18 +2,18 @@
 :source:
   :path: test
   :file: test_notifier.c
-:successes: []
-:failures:
+:successes:
 - :test: test_notify_threshold_exceeded_triggers_alert
-  :line: 8
-  :message: Function log_data.  Called fewer times than expected.
+  :line: 9
+  :message: ''
   :unity_test_time: 0
+:failures: []
 :ignores: []
 :counts:
   :total: 1
-  :passed: 0
-  :failed: 1
+  :passed: 1
+  :failed: 0
   :ignored: 0
 :stdout:
 - 'ALERT: Value 120 exceeds the threshold!'
-:time: 0.03723170000012033
+:time: 0.0230916000000434
