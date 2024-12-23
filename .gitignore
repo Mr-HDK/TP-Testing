@@ -1,4 +1,9 @@
 #build/
-#*.o
-#*.exe
+*.o
+*.exe
+*.gcda
+*.gcno
+!*.pass
 #.ceedling
+build/gcov/
+build/test/
