@@ -16,9 +16,11 @@ void test_sensor_and_controller_integration(void) {
     } else {
         //TEST_FAIL_MESSAGE("Invalid sensor value encountered.");
         printf("Skipping invalid sensor value: %d\n", sensor_value);
-        continue;  // Pour éviter l'échec du test à l'encontre d'une valeur invalide
+        // Simply return to avoid further processing of invalid values
+        return;  
     }
 }
+
 
 
 void test_process_data_handles_edge_cases(void) {

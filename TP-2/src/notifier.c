@@ -1,6 +1,5 @@
 #include "notifier.h"
 #include "utils.h"
-#include <stdio.h>
 
 void notify_threshold_exceeded(int value) {
     log_data(value);

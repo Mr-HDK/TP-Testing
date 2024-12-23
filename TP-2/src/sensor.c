@@ -1,5 +1,4 @@
 #include "sensor.h"
-#include <stdlib.h>
 
 int read_sensor(void) {
     return rand() % 150;  // Simule une lecture aléatoire (plage élargie pour tests) avec possibilité d'érreurs.
