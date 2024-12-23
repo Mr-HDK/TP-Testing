@@ -13,28 +13,28 @@ void tearDown(void) {
 }
 
 void test_check_temperature_should_return_1_when_too_hot(void) {
-    read_temperature_sensor_ExpectAndReturn(/* Température élevée */);
-    TEST_ASSERT_EQUAL(/* Résultat attendu */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(80);
+    TEST_ASSERT_EQUAL(1, check_temperature());
 }
 
 void test_check_temperature_should_return_minus_1_when_too_cold(void) {
-    read_temperature_sensor_ExpectAndReturn(/* Température basse */);
-    TEST_ASSERT_EQUAL(/* Résultat attendu */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(-10);
+    TEST_ASSERT_EQUAL(-1, check_temperature());
 }
 
 void test_check_temperature_should_return_0_when_normal(void) {
-    read_temperature_sensor_ExpectAndReturn(/* Température normale */);
-    TEST_ASSERT_EQUAL(/* Résultat attendu */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(25);
+    TEST_ASSERT_EQUAL(0, check_temperature());
 }
 
 
 // Testes supplémentaires : Cas limites exacts
 void test_check_temperature_should_handle_exact_limits(void) {
-    read_temperature_sensor_ExpectAndReturn(/* ?? */); // Limite basse
-    TEST_ASSERT_EQUAL(/* ?? */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(-40); // Limite basse
+    TEST_ASSERT_EQUAL(-1, check_temperature());
 
-    read_temperature_sensor_ExpectAndReturn(/* ?? */); // Limite haute
-    TEST_ASSERT_EQUAL(/* ?? */, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(125); // Limite haute
+    TEST_ASSERT_EQUAL(1, check_temperature());
 
     /* ++ Vous pouvez ajouter d'autres tests pour explorer les limites ++ */
 }
@@ -46,4 +46,3 @@ void test_check_temperature_should_handle_exact_limits(void) {
     - Étape 1 : Modifiez la fonction 'check_temperature' dans '/src/temp_controller.c' pour gérer ces cas.
     - Étape 2 : Créez un test unitaire pour valider ce comportement.
 */
-
