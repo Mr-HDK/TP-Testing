@@ -1,6 +1,7 @@
 #include "unity.h"
 #include "notifier.h"
 #include "mock_utils.h" // Mocked logging function
+#include <stdlib.h>
 
 void setUp(void) {}
 void tearDown(void) {}

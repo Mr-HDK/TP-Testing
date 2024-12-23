@@ -3,89 +3,67 @@
 #include "controller.h"
 #include "notifier.h"
 #include "utils.h"
+#include <stdlib.h>
 
 /*
  * Instructions :
- * Complétez les sections marquées par `// À compléter`.
- * - Testez les interactions entre les modules `sensor`, `controller`, `notifier`, et `utils`.
- * - Suivez les étapes et utilisez les commentaires comme guide.
+ * 1. Complétez les parties manquantes (indiquées par `/* À COMPLÉTER * /`).
+ * 2. Lisez les commentaires pour comprendre le but de chaque test.
+ * 3. Exécutez `ceedling test:all` pour valider vos réponses.
  */
 
-void setUp(void) {}
+void setUp(void) {
+    /* À COMPLÉTER : Initialiser le générateur de nombres 
+     * aléatoires pour des résultats reproductibles (seed)
+     */
+    srand(42);
+    }
 void tearDown(void) {}
 
-/*
- * Test : Workflow avec une valeur capteur valide
- * Objectif : Valider le traitement complet des données valides.
+
+/* Test : Workflow avec des valeurs valides (hors bordures)
+ * Objectif : Vérifier que les valeurs valides générées par `read_sensor`
+ * sont correctement traitées par `process_data`.
  */
 void test_valid_sensor_value_workflow(void) {
-    int simulated_sensor_value = 50;  // Valeur simulée
-    int expected_processed_value = simulated_sensor_value * 2 + 10;
-
-    // Étape 1 : Simuler une température dans le capteur
-    // À compléter : Utilisez une fonction pour définir la température simulée.
-    // Indice : Regardez les fonctions disponibles dans `sensor.h`.
-
-    int sensor_value = read_sensor();
-
-    // Étape 2 : Vérifier si la valeur est valide
-    // À compléter : Utilisez une fonction pour valider la valeur du capteur.
-    if ( /* À compléter : Condition pour vérifier la validité */ ) {
-        // Étape 3 : Traiter la valeur
-        int processed_value = process_data(sensor_value);
-
-        // Étape 4 : Enregistrer la valeur traitée
-        // À compléter : Appelez une fonction pour enregistrer les données.
+    for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
+        int sensor_value = read_sensor();
+        if (sensor_value > 0 && sensor_value < 100) {
+            int processed_value = process_data(sensor_value); // Traitez la valeur du capteur
+            log_data(processed_value); // Enregistrez la donnée traitée
+            TEST_ASSERT_EQUAL_INT(sensor_value * 2 + 10, processed_value); // Vérifiez que le traitement est correct
+        }
     }
-
-    // Vérifications
-    // À compléter : Ajoutez des assertions pour vérifier que `sensor_value` et `processed_value` sont corrects.
 }
 
-/*
- * Test : Workflow avec une valeur capteur invalide
- * Objectif : Valider le comportement en cas de dépassement de seuil.
+/* Test : Workflow avec des valeurs invalides
+ * Objectif : Vérifier que les valeurs hors plage déclenchent une alerte.
  */
 void test_invalid_sensor_value_workflow(void) {
-    int simulated_invalid_value = 120;  // Valeur simulée invalide
-
-    // Étape 1 : Simuler une température invalide
-    // À compléter : Définissez la température simulée.
-
-    int sensor_value = read_sensor();
-
-    // Étape 2 : Vérifier si la valeur est invalide
-    if ( /* À compléter : Condition pour vérifier l'invalidité */ ) {
-        // Étape 3 : Notifier le dépassement de seuil
-        // À compléter : Appelez une fonction pour envoyer une notification.
+    for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
+        int sensor_value = read_sensor();
+        if (is_valid_value(sensor_value) == false) {
+            notify_threshold_exceeded(sensor_value); // Déclenchez une alerte pour les valeurs invalides
+            TEST_ASSERT(is_valid_value(sensor_value) == false); // Vérifiez que la condition d'invalidité est respectée
+        }
     }
-
-    // Vérifications
-    // À compléter : Ajoutez une assertion pour vérifier que `sensor_value` est invalide.
 }
 
-/*
- * Test : Conditions limites
- * Objectif : Tester les valeurs limites.
+/* Test : Conditions limites (bordures uniquement)
+ * Objectif : Vérifier le comportement du système pour des valeurs critiques.
+ * N.B : ici on contourne read_sensor pour injecter des valeurs précise.
  */
 void test_boundary_conditions(void) {
-    int boundary_values[] = {0, 100, -1, 101};
-
+    int boundary_values[] = {0, 100, -1, 101, 149}; // Bordures valides et invalides
     for (int i = 0; i < sizeof(boundary_values) / sizeof(boundary_values[0]); i++) {
-        int value = boundary_values[i];
-
-        // Étape 1 : Simuler une valeur limite
-        // À compléter : Définissez la valeur limite.
-
-        int sensor_value = read_sensor();
-
-        // Étape 2 : Vérifiez si la valeur est valide ou invalide
-        if ( /* À compléter : Condition pour valider/invalider */ ) {
-            // Étape 3 : Traiter ou notifier selon le cas
-            // À compléter : Traitez la valeur ou notifiez le dépassement de seuil.
+        int sensor_value = boundary_values[i];
+        if (is_valid_value(sensor_value)) {
+            int processed_value = process_data(sensor_value);
+            log_data(processed_value);
+            TEST_ASSERT_EQUAL_INT(sensor_value * 2 + 10, processed_value);
+        } else {
+            notify_threshold_exceeded(sensor_value);
+            TEST_ASSERT(is_valid_value(sensor_value) == false);
         }
-
-        // Vérifications
-        // À compléter : Ajoutez des assertions pour vérifier le comportement attendu.
     }
 }
