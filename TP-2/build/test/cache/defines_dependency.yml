@@ -1,0 +1,13 @@
+---
+src/controller.c:
+- TEST
+src/sensor.c:
+- TEST
+build/test/mocks/mock_utils.c:
+- TEST
+src/notifier.c:
+- TEST
+build/test/mocks/mock_stdio.c:
+- TEST
+src/utils.c:
+- TEST
