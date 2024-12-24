@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../resources/keywords.robot
+Resource    ./resources/keywords.robot
 Library     BuiltIn
 
 *** Test Cases ***
@@ -16,4 +16,4 @@ Test Spécifique Température 45°C
     Should Be Equal    ${action}    Fan activated
 
     Run Keyword If    ${temperature} < 0 or ${temperature} > 100    Tester Notification Température Hors Plage    ${temperature}
-    ELSE    Log    Pas de notification nécessaire pour ${temperature}°C
+    ...    ELSE    Log    Pas de notification nécessaire pour ${temperature}°C

@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../resources/keywords.robot
+Resource    ./resources/keywords.robot
 Library     BuiltIn
 
 *** Test Cases ***
@@ -29,4 +29,3 @@ Test Température Critique
     [Documentation]    Vérifie la gestion des températures critiques.
     ${temperature}=    Simuler Lecture Température    -10
     Température Doit ÊTre Valide    ${temperature}
-
