@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../resources/keywords.robot
+Resource    ./resources/keywords.robot
 Library     BuiltIn
 
 *** Test Cases ***
