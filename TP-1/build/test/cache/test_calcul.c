@@ -58,6 +58,18 @@ void test_addition(void) {
 
    ), (UNITY_UINT)(13), UNITY_DISPLAY_STYLE_INT);
 
+    UnityAssertEqualNumber((UNITY_INT)((2147483647)), (UNITY_INT)((addition(2147483646, 1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(14), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((-2147483648)), (UNITY_INT)((addition(-2147483647, -1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
+
 
 
 }
