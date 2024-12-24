@@ -15,5 +15,7 @@ Test Spécifique Température 45°C
     ${action}=    Tester Action Température    ${temperature}
     Should Be Equal    ${action}    Fan activated
 
-    Run Keyword If    ${temperature} < 0 or ${temperature} > 100    Tester Notification Température Hors Plage    ${temperature}
-    ...    ELSE    Log    Pas de notification nécessaire pour ${temperature}°C
+    Run Keyword If    ${temperature} < 0 or ${temperature} > 100
+    ...    Tester Notification Température Hors Plage    ${temperature}
+    Run Keyword If    ${temperature} >= 0 and ${temperature} <= 100
+    ...    Log    Pas de notification nécessaire pour ${temperature}°C

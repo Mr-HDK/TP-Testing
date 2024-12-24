@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ./resources/keywords.robot
 Library     BuiltIn
-
+Library     ../src/sensor.py    # Adjust the path if needed
 # SCÉNARIO : Gestion d'une température critique et d'une alerte
 # 
 # Objectif : Implémentez un test E2E pour gérer un scénario où la température dépasse 
@@ -18,3 +18,24 @@ Library     BuiltIn
 # - Le test doit échouer si une action est prise pour une température hors seuil.
 # - Une notification doit être loggée avec un message indiquant que la température est critique.
 # - Chaque étape doit être documentée par un log clair.
+
+
+*** Test Cases ***
+Test Température Critique
+    [Documentation]    Gère un scénario où la température dépasse les seuils acceptables.
+    ${temperature}=    Simuler Lecture Température    120
+    Log    Température simulée: ${temperature}
+    Run Keyword If    ${temperature} > 100    Log    Température trop élevée: ${temperature}
+    
+    # Étape 1 : Validation de la température
+    Run Keyword If    ${temperature} > 100    Température Doit Être Invalide    ${temperature}
+    Log    Température invalide détectée: ${temperature}
+
+    # Étape 2 : Vérification d'absence d'actions
+    ${action}=    Tester Action Température    ${temperature}
+    Should Be Equal    ${action}    No action
+    Log    Aucune action prise pour une température critique: ${temperature}
+
+    # Étape 3 : Vérification de la notification critique
+    Tester Notification Température Critique    ${temperature}
+    Log    Notification critique envoyée pour température: ${temperature}

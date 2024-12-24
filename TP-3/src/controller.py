@@ -16,4 +16,4 @@ def process_temperature(temperature):
         return round(temperature, 1), result
     else:
         send_notification(f"Alerte : Température hors plage ({temperature}°C)")
-        return None, "No action"
+        return round(temperature, 1), "No action"

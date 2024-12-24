@@ -8,5 +8,6 @@ def read_temperature(custom_value=None):
     """
     if custom_value is not None:
         return float(custom_value)
-    return random.uniform(0, 150)  # Dépasse la plage valide [0, 100]°C 
+    return random.uniform(0, 100)  # Dépasse la plage valide [0, 100]°C 
                                    # à vous de la changer.
+
