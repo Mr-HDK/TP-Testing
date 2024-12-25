@@ -28,5 +28,5 @@ Test Notification Température Hors Plage
 Test Température Critique
     [Documentation]    Vérifie la gestion des températures critiques.
     ${temperature}=    Simuler Lecture Température    -10
-    Température Doit ÊTre Valide    ${temperature}
-
+    ${is_valid}=    Run keyword and Return Status    Température Doit ÊTre Valide    ${temperature}
+    Should Be Equal    ${is_valid}    ${False}    La température aurait dû être invalide.

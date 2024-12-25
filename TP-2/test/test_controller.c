@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void setUp(void) {
-            srand(42); // Fixed seed for reproducibility
+    srand(42); // Fixed seed for reproducibility
 }
 void tearDown(void) {}
 
@@ -16,7 +16,7 @@ void test_sensor_and_controller_integration(void) {
     } else {
         //TEST_FAIL_MESSAGE("Invalid sensor value encountered.");
         printf("Skipping invalid sensor value: %d\n", sensor_value);
-        continue;  // Pour éviter l'échec du test à l'encontre d'une valeur invalide
+        //continue;  // Pour éviter l'échec du test à l'encontre d'une valeur invalide
     }
 }
 

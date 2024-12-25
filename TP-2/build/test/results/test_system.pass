@@ -1,0 +1,58 @@
+---
+:source:
+  :path: test
+  :file: test_system.c
+:successes:
+- :test: test_valid_sensor_value_workflow
+  :line: 27
+  :message: ''
+  :unity_test_time: 0
+- :test: test_invalid_sensor_value_workflow
+  :line: 41
+  :message: ''
+  :unity_test_time: 0
+- :test: test_boundary_conditions
+  :line: 55
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout:
+- 'Logged Value: 64'
+- 'Logged Value: 180'
+- 'Logged Value: 94'
+- 'Logged Value: 208'
+- 'Logged Value: 134'
+- 'Logged Value: 162'
+- 'Logged Value: 190'
+- 'Logged Value: 54'
+- 'Logged Value: 117'
+- 'ALERT: Value 117 exceeds the threshold!'
+- 'Logged Value: 129'
+- 'ALERT: Value 129 exceeds the threshold!'
+- 'Logged Value: 102'
+- 'ALERT: Value 102 exceeds the threshold!'
+- 'Logged Value: 108'
+- 'ALERT: Value 108 exceeds the threshold!'
+- 'Logged Value: 119'
+- 'ALERT: Value 119 exceeds the threshold!'
+- 'Logged Value: 117'
+- 'ALERT: Value 117 exceeds the threshold!'
+- 'Logged Value: 106'
+- 'ALERT: Value 106 exceeds the threshold!'
+- 'Logged Value: 142'
+- 'ALERT: Value 142 exceeds the threshold!'
+- 'Logged Value: 10'
+- 'Logged Value: 210'
+- 'Logged Value: -1'
+- 'ALERT: Value -1 exceeds the threshold!'
+- 'Logged Value: 101'
+- 'ALERT: Value 101 exceeds the threshold!'
+- 'Logged Value: 149'
+- 'ALERT: Value 149 exceeds the threshold!'
+:time: 0.002447645994834602
