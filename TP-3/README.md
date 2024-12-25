@@ -44,7 +44,6 @@ Le projet est organisé comme suit :
 │ │ ├── functional_tests.robot # Tests fonctionnels : actions système
 │ │ ├── validation_tests.robot # Tests de validation des températures
 │ │ ├── alert_tests.robot # Tests des notifications hors plage
-│ │ └── main_suite.robot # Exécution de toutes les suites de tests
 │ │
 │ ├── test_system.robot # Tests système généraux (validations et actions)
 │ ├── test_e2e_45.robot # Test E2E pour 45°C
@@ -57,7 +56,6 @@ Le projet est organisé comme suit :
 - **src/** : Simulation du système (capteurs, contrôleur, etc.).
 - **test/** : Tests automatisés avec Robot Framework.
 - **resources/** : Contient les mots-clés centralisés.
-- **main_suite.robot** : Point d'entrée pour exécuter tous les tests.
 - **test_temperature_critical.robot** : Exercice destiné aux étudiants pour implémenter un cas de test.
 
 
@@ -74,15 +72,23 @@ Le projet est organisé comme suit :
 2. **Installer les dépendances**  
    `pip install -r requirements.txt`  
 
-3. **Exécuter la suite principale**  
-   Lancez l'exécution de toutes les suites avec :  
-   `robot test/suites/main_suite.robot`
+3. **Exécution des tests**  
+   *  Exécuter tous les tests :    
+      Pour exécuter l’ensemble des tests dans le répertoire :   
+      
+      `robot test/`
 
-4. **Exécuter un test spécifique**  
-   Exemple pour exécuter uniquement le test `test_e2e_45.robot` :  
-   `robot test/test_e2e_45.robot`
+   *  Exécuter toutes les suites :     
+      Pour exécuter uniquement les tests dans le répertoire suites/ :
 
-5. **Consulter les rapports**  
+      `robot test/suites/`
+
+   *  Exécuter un test spécifique :    
+      Exemple pour exécuter uniquement le test test_temperature_critical.robot :
+
+      `robot test/test_temperature_critical`
+
+4. **Consulter les rapports**  
    Les résultats des tests seront disponibles ici :  
    `test/results/report.html`    
    **NB:** Contient un **apercu détaillé** des tests.
@@ -117,7 +123,7 @@ Le projet est organisé comme suit :
 ## Étapes Pratiques pour les Étudiants
 
 1. **Corriger les Tests Existants**  
-   - Assurez-vous que **`test_system.robot`** et **`sensor.py`** sont corrigés pour qu’ils ne génèrent plus d’erreurs (test fails) dans aucun scénario.
+   - Assurez-vous que **`test_system.robot`** et **`sensor.py`** sont corrigés pour ne générer aucune erreur (aucun test échoué) dans tous les scénarios.
 
 2. **Compléter le Scénario Température Critique**  
    - Implémentez le fichier **`test_temperature_critical.robot`** pour vérifier le comportement du système avec une température critique :  
@@ -125,6 +131,14 @@ Le projet est organisé comme suit :
      - Validez que la température est invalide.  
      - Aucune action (chauffage ou ventilation) ne doit être prise.  
      - Une notification critique doit être envoyée.
+
+3. **Executer tous les tests**
+   - Lancez l’exécution de tous les tests pour vous assurer qu’aucune erreur n’est présente. (Corriger les erreurs.)
+   - Exécutez spécifiquement le fichier `test_temperature_critical.robot` et vérifiez que le scénario se déroule comme prévu.
+
+4. **Documenter les Résultats**
+   - Prenez des captures d’écran des résultats dans le terminal (CLI) pour l’exécution complète des tests.
+   - Prenez des captures d’écran du rapport HTML détaillé généré pour `test_temperature_critical.robot`
 
 ---
 

@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../resources/keywords.robot
+Resource    ./resources/keywords.robot
 Library     BuiltIn
 
 *** Test Cases ***
@@ -28,5 +28,5 @@ Test Notification Température Hors Plage
 Test Température Critique
     [Documentation]    Vérifie la gestion des températures critiques.
     ${temperature}=    Simuler Lecture Température    -10
-    Température Doit ÊTre Valide    ${temperature}
-
+    ${result}=    Run Keyword and Return Status    Température Doit ÊTre Valide    ${temperature}
+    Should Not Be True    ${result}    La température devrait être invalide.
