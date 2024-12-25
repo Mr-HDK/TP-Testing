@@ -1,0 +1,79 @@
+---
+:source:
+  :path: test
+  :file: test_system.c
+:successes:
+- :test: test_valid_sensor_value_workflow
+  :line: 30
+  :message: ''
+  :unity_test_time: 0
+- :test: test_invalid_sensor_value_workflow
+  :line: 44
+  :message: ''
+  :unity_test_time: 0
+- :test: test_boundary_conditions
+  :line: 58
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout:
+- 'Logged Value: 162'
+- 'Logged Value: 12'
+- 'Logged Value: 150'
+- 'Logged Value: 124'
+- 'Logged Value: 178'
+- 'Logged Value: 170'
+- 'Logged Value: 44'
+- 'Logged Value: 100'
+- 'Logged Value: 30'
+- 'Logged Value: 150'
+- 'Logged Value: 30'
+- 'Logged Value: 112'
+- 'Logged Value: 154'
+- 'Logged Value: 84'
+- 'Logged Value: 62'
+- 'Logged Value: 188'
+- 'Logged Value: 36'
+- 'Logged Value: 114'
+- 'Logged Value: 164'
+- 'Logged Value: -100'
+- 'ALERT: Value -100 exceeds the threshold!'
+- 'Logged Value: -31'
+- 'ALERT: Value -31 exceeds the threshold!'
+- 'Logged Value: -44'
+- 'ALERT: Value -44 exceeds the threshold!'
+- 'Logged Value: -17'
+- 'ALERT: Value -17 exceeds the threshold!'
+- 'Logged Value: -21'
+- 'ALERT: Value -21 exceeds the threshold!'
+- 'Logged Value: -84'
+- 'ALERT: Value -84 exceeds the threshold!'
+- 'Logged Value: -56'
+- 'ALERT: Value -56 exceeds the threshold!'
+- 'Logged Value: -91'
+- 'ALERT: Value -91 exceeds the threshold!'
+- 'Logged Value: -91'
+- 'ALERT: Value -91 exceeds the threshold!'
+- 'Logged Value: -29'
+- 'ALERT: Value -29 exceeds the threshold!'
+- 'Logged Value: -1'
+- 'ALERT: Value -1 exceeds the threshold!'
+- 'Logged Value: -75'
+- 'ALERT: Value -75 exceeds the threshold!'
+- 'Logged Value: -24'
+- 'ALERT: Value -24 exceeds the threshold!'
+- 'Logged Value: 10'
+- 'Logged Value: 210'
+- 'Logged Value: -1'
+- 'ALERT: Value -1 exceeds the threshold!'
+- 'Logged Value: 101'
+- 'ALERT: Value 101 exceeds the threshold!'
+- 'Logged Value: 149'
+- 'ALERT: Value 149 exceeds the threshold!'
+:time: 0.046504700000014054

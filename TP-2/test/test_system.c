@@ -4,6 +4,8 @@
 #include "notifier.h"
 #include "utils.h"
 #include <stdlib.h>
+#include <stdio.h>
+
 
 /*
  * Instructions :
@@ -16,7 +18,8 @@ void setUp(void) {
     /* À COMPLÉTER : Initialiser le générateur de nombres 
      * aléatoires pour des résultats reproductibles (seed)
      */
-    }
+    srand(42); // Exemple d'initialisation avec une graine fixe pour la reproductibilité
+}
 void tearDown(void) {}
 
 
@@ -26,11 +29,11 @@ void tearDown(void) {}
  */
 void test_valid_sensor_value_workflow(void) {
     for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
-        int sensor_value = /* À COMPLÉTER */;
+        int sensor_value = rand() % 100 + 1;  // Génère une valeur entre 1 et 100
         if (sensor_value > 0 && sensor_value < 100) {
-            int processed_value = process_data(/* À COMPLÉTER */); // Traitez la valeur du capteur
-            log_data(/* À COMPLÉTER */); // Enregistrez la donnée traitée
-            TEST_ASSERT_EQUAL_INT(/* À COMPLÉTER avec l'équation du traitement */, processed_value); // Vérifiez que le traitement est correct
+            int processed_value = process_data(sensor_value); // Traitez la valeur du capteur
+            log_data(processed_value); // Enregistrez la donnée traitée
+            TEST_ASSERT_EQUAL_INT(sensor_value * 2 + 10, processed_value); // Vérifiez que le traitement est correct
         }
     }
 }
@@ -40,10 +43,10 @@ void test_valid_sensor_value_workflow(void) {
  */
 void test_invalid_sensor_value_workflow(void) {
     for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
-        int sensor_value = /* À COMPLÉTER */;
-        if (/* À COMPLÉTER : condition pour les valeurs hors plage */) {
-            notify_threshold_exceeded(/* À COMPLÉTER */); // Déclenchez une alerte pour les valeurs invalides
-            TEST_ASSERT(/* À COMPLÉTER */); // Vérifiez que la condition d'invalidité est respectée
+        int sensor_value = rand() % 200 - 100;  // Génère une valeur entre -100 et 99
+        if (sensor_value <= 0 || sensor_value >= 100) {  // Valeurs invalides (en dehors de la plage valide)
+            notify_threshold_exceeded(sensor_value); // Déclenche une alerte pour les valeurs invalides
+            TEST_ASSERT_TRUE(sensor_value <= 0 || sensor_value >= 100); // Vérifiez que la condition d'invalidité est respectée
         }
     }
 }
@@ -55,14 +58,14 @@ void test_invalid_sensor_value_workflow(void) {
 void test_boundary_conditions(void) {
     int boundary_values[] = {0, 100, -1, 101, 149}; // Bordures valides et invalides
     for (int i = 0; i < sizeof(boundary_values) / sizeof(boundary_values[0]); i++) {
-        int sensor_value = /* À COMPLÉTER : une valeur parmi boundary_values */;
-        if (is_valid_value(/* À COMPLÉTER */)) {
-            int processed_value = process_data(/* À COMPLÉTER */);
-            log_data(/* À COMPLÉTER */);
-            TEST_ASSERT_EQUAL_INT(/* À COMPLÉTER  avec l'équation du traitement */, processed_value);
+        int sensor_value = boundary_values[i];  // Injection de la valeur à tester
+        if (is_valid_value(sensor_value)) {
+            int processed_value = process_data(sensor_value);
+            log_data(processed_value);
+            TEST_ASSERT_EQUAL_INT(sensor_value * 2 + 10, processed_value);  // Vérification de l'équation du traitement
         } else {
-            notify_threshold_exceeded(/* À COMPLÉTER */);
-            TEST_ASSERT(/* À COMPLÉTER : Condition invalide */);
+            notify_threshold_exceeded(sensor_value);
+            TEST_ASSERT_TRUE(sensor_value <= 0 || sensor_value >= 100);  // Vérifie que la valeur est invalide
         }
     }
 }
