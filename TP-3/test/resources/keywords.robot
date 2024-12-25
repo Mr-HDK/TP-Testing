@@ -1,8 +1,9 @@
 *** Settings ***
-Library    ../src/sensor.py
-Library    ../src/actuator.py
-Library    ../src/notifier.py
-Library    ../src/utils.py
+*** Settings ***
+Library    C:\\Users\\eyama\\TP-Testing\\TP-3\\src\\sensor.py
+Library    C:\\Users\\eyama\\TP-Testing\\TP-3\\src\\actuator.py
+Library    C:\\Users\\eyama\\TP-Testing\\TP-3\\src\\notifier.py
+Library    C:\\Users\\eyama\\TP-Testing\\TP-3\\src\\utils.py
 Library    BuiltIn
 
 *** Keywords ***

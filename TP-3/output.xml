@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2024-12-25T22:17:23.321145" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Temperature Critical" source="C:\Users\eyama\TP-Testing\TP-3\test\test_temperature_critical.robot">
+<test id="s1-t1" name="Gestion d'une Température Critique et Notification" line="10">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T22:17:23.353113" level="INFO">Étape 1 : Fixation de la température critique à 120°C</msg>
+<arg>Étape 1 : Fixation de la température critique à ${CRITICAL_TEMPERATURE}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Set Temperature">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T22:17:23.353113" level="INFO">Réglage de la température à 120°C</msg>
+<arg>Réglage de la température à ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Set Temperature Keyword">
+<msg time="2024-12-25T22:17:23.353113" level="FAIL">No keyword with name 'Set Temperature Keyword' found. Did you try using keyword 'Set Temperature' and forgot to use enough whitespace between keyword and arguments?</msg>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-25T22:17:23.353113" elapsed="0.000000">No keyword with name 'Set Temperature Keyword' found. Did you try using keyword 'Set Temperature' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<arg>${CRITICAL_TEMPERATURE}</arg>
+<status status="FAIL" start="2024-12-25T22:17:23.353113" elapsed="0.000000">No keyword with name 'Set Temperature Keyword' found. Did you try using keyword 'Set Temperature' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Étape 2 : Vérification si la température est invalide</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Is Temperature Valid">
+<var>${is_valid}</var>
+<arg>${CRITICAL_TEMPERATURE}</arg>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be False">
+<arg>${is_valid}</arg>
+<arg>La température critique doit être invalide</arg>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Étape 3 : Vérification qu'aucune action n'est prise pour une température hors seuil</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Get Heating Status">
+<var>${heating_status}</var>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Get Fan Status">
+<var>${fan_status}</var>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be False">
+<arg>${heating_status}</arg>
+<arg>Le chauffage ne doit pas être activé pour une température critique</arg>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be False">
+<arg>${fan_status}</arg>
+<arg>Le ventilateur ne doit pas être activé pour une température critique</arg>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Étape 4 : Vérification de l'envoi d'une notification pour température critique</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Get Last Notification">
+<var>${notification}</var>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${notification}</arg>
+<arg>${EXPECTED_NOTIFICATION}</arg>
+<arg>La notification doit indiquer une température critique</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Étape 5 : Toutes les vérifications ont été effectuées avec succès</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T22:17:23.353113" elapsed="0.000000"/>
+</kw>
+<doc>Ce test vérifie qu'aucune action n'est prise pour une température critique
+et qu'une notification est envoyée correctement.</doc>
+<status status="FAIL" start="2024-12-25T22:17:23.353113" elapsed="0.000000">No keyword with name 'Set Temperature Keyword' found. Did you try using keyword 'Set Temperature' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<status status="FAIL" start="2024-12-25T22:17:23.321145" elapsed="0.031968"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Temperature Critical">Test Temperature Critical</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
