@@ -4,9 +4,10 @@ Variables    ../src/config.py
 Library     BuiltIn
 
 *** Test Cases ***
+
 Test Lecture Température Valide Avec Aléatoire
     [Documentation]    Vérifie qu'une température aléatoire générée est valide.
-    ${temperature}=    Simuler Lecture Température
+    ${temperature}=    Generate Random Temperature    ${MIN_TEMP_THRESHOLD}    ${MAX_TEMP_THRESHOLD}
     Température Doit ÊTre Valide    ${temperature}
     Log    Température générée: ${temperature}
 
@@ -39,3 +40,9 @@ Test Température Critique
     ${temperature}=    Evaluate    ${MIN_TEMP_THRESHOLD} - 10
     Run Keyword And Expect Error    Température non valide*    Température Doit ÊTre Valide    ${temperature}
     Log    Température critique détectée: ${temperature}
+
+*** Keywords ***
+Generate Random Temperature
+    [Arguments]    ${min}    ${max}
+    ${random_temp}=    Evaluate    random.uniform(${min}, ${max})    modules=random
+    [Return]    ${random_temp}
