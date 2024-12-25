@@ -15,25 +15,31 @@ Bienvenue dans l'exercice avancé de testing avec Ceedling, Unity, GCovr et CMoc
 
 ## 🚀 Étapes principales
 
-### 1. Création du projet avec Ceedling
+### 1. Création et configuration du projet avec Ceedling
 
 - Créez un nouveau projet avec Ceedling :
-  ceedling new .
+  `ceedling new .`
 
 - Accédez au dossier du projet nouvellement créé :
-  cd exercice-avancé
+  `cd advanced-exercise`
 
-  - Modifiez le fichier `project.yml` pour inclure le plugin GCov :
-  :plugins:
-    - gcov
+- Installez gcovr:
+`pip install gcovr`
+
+- Modifiez le fichier `project.yml` pour inclure le plugin GCov :
+
+        :plugins:        
+          :enabled:
+            - gcov
 
 ### 3. Ajouter des tests avec mocks
 
 - Modifiez le fichier de test pour utiliser des mocks avec CMock.
 - Assurez-vous que toutes les dépendances externes sont simulées avec des fonctions comme :
 
-  `mock_reset()`
-  `mock_verify()`
+  `mock_reset()` ≃ `mock_temp_sensor_Init();`   
+  `mock_verify()` ≃  `mock_temp_sensor_Destroy();`
+   
   `func_ExpectAndReturn()`
   
 ### 4. Exécuter les tests et générer un rapport
@@ -84,8 +90,10 @@ CMock est utilisé pour simuler des dépendances externes dans vos tests. Voici 
    - Les mocks sont générés automatiquement pour les dépendances spécifiées dans le fichier `project.yml`.
 
 2. **Réinitialisation et vérification** :
-   - Avant chaque test, utilisez `mock_reset()` pour vous assurer qu'il n'y a pas d'interférences.
-   - Après le test, utilisez `mock_verify()` pour confirmer que tous les appels attendus ont été faits.
+   - Avant chaque test (`void setUp`): Utilisez `mock_temp_sensor_Init();` pour vous assurer qu'il n'y a pas d'interférences.
+   - Après le test (`void tearDown`): Utilisez `mock_temp_sensor_Destroy();` pour confirmer que tous les appels attendus ont été faits.   
+   
+   Cette approche garantit que vos tests restent isolés et que les dépendances externes ne perturbent pas vos résultats.
 
 ---
 

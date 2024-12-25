@@ -17,90 +17,9 @@ Structure du projet
 -   **`src/`** : Contient les fichiers sources de l'application à tester.
 -   **`tests/`** : Contient les fichiers de tests unitaires.
 -   **`TP-1/README.md`** : Ce fichier contient les instructions pour cette séance.
--   **`exercice-avancé`** : Contient un exercice supplémentaire à réaliser.
+-   **`advanced-exercise`** : Contient un exercice supplémentaire à réaliser.
 
 * * * * *
-
-Rappel sur Git
---------------
-
-### Étapes pour gérer votre projet avec Git
-
-Pour travailler efficacement sur ce TP, suivez les étapes ci-dessous.
-
-* * * * *
-
-### 1\. Cloner le dépôt du TP
-
-Commencez par cloner le dépôt GitHub contenant le TP :
-
-`git clone https://github.com/Mr-HDK/TP-Testing-3ISEOC.git`
-
-Une fois le dépôt cloné, accédez au dossier du projet :
-
-`cd TP-Testing-3ISEOC`
-
-* * * * *
-
-### 2\. Créer une branche avec votre prénom et nom
-
-Créez une branche pour travailler sur votre copie en utilisant votre prénom et nom (par exemple, `ahmed-jaleli`) :
-
-`git branch prenom-nom`
-
-`git checkout prenom-nom`
-
-> **Remarque :** Remplacez `prenom-nom` par vos vrais prénom et nom, en utilisant des lettres minuscules et un tiret pour séparer les mots (par exemple, ahmed-jaleli).
-
-* * * * *
-
-### 3\. Travailler sur votre branche
-
-1.  Modifiez les fichiers nécessaires au TP.
-2.  Ajoutez vos modifications au suivi de Git :
-   
-    `git add .`
-3.  Sauvegardez vos changements avec un message clair :
-   
-    `git commit -m "Début du TP - Ajout de [description]"`
-
-* * * * *
-
-### 4\. Mettre à jour votre branche:
-
-**_Si_** des modifications sont apportées par l'instructeur au dépôt principal (main), vous pouvez facilement récupérer ces changements tout en restant sur votre branche. Pour cela, utilisez cette commande :
-
-1.  **Depuis votre branche**, récupérez les derniers changements du dépôt principal :
-   
-   `git pull origin main`
-
-Cela mettra à jour votre branche avec les dernières modifications de la branche main sans avoir besoin de passer par des étapes supplémentaires.
-
-### 5\. Sauvegarder et envoyer vos modifications
-
-Une fois que vous avez terminé une partie de votre travail, il est important de pousser régulièrement vos changements sur GitHub pour ne pas perdre votre progression.
-
-1. Pousser vos changements sur votre branche GitHub :
-
-   `git push origin prenom-nom`
-
-Cela permet de sauvegarder vos modifications dans le dépôt distant tout en restant sur votre propre branche.
-
-* * * * *
-
-### Commandes principales à retenir :
-
-| Commande | Description |
-| --- | --- |
-| `git clone [URL]` | Cloner un dépôt Git distant. |
-| `git branch prenom-nom` | Créer une nouvelle branche. |
-| `git checkout prenom-nom` | Passer sur une branche spécifique. |
-| `git add .` | Ajouter toutes les modifications au suivi de Git. |
-| `git commit -m "message"` | Sauvegarder les modifications avec un message. |
-| `git pull origin main` | Récupérer les changements du dépôt principal. |
-| `git fetch origin` | Récupérer les changements du dépôt distant sans les fusionner. |
-| `git merge main` | Fusionner une branche dans la branche actuelle. |
-
 
 🛠️ Préparation des outils
 --------------------------
@@ -144,11 +63,12 @@ Les étudiants doivent disposer des outils suivants pour suivre ces travaux prat
 #### Pour Windows :
 
 -   **Installer Git** depuis [Git pour Windows](https://git-scm.com/).
--   **Installer le compilateur C avec MinGW** :
-    -   Téléchargez et installez MinGW.
-    -   Ajoutez le chemin du dossier `bin` à vos variables d'environnement.
--   **Installer Ruby** depuis [RubyInstaller](https://rubyinstaller.org/). [**_Version 3.0.X recommandée_**](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.7-1/rubyinstaller-devkit-3.0.7-1-x64.exe)
-    -   Assurez-vous d'inclure DevKit et d'ajouter Ruby au PATH.
+-   **Installer Ruby** depuis [RubyInstaller](https://rubyinstaller.org/).  
+Version recommandée : 3.0.X [(Télécharger Ruby 3.0.7-1)](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.7-1/rubyinstaller-devkit-3.0.7-1-x64.exe)
+    -   Assurez-vous d'inclure DevKit et d'ajouter Ruby au PATH (C'est fait par défaut).
+-   **Installer le compilateur C avec MinGW** : (inclut dans ruby-devkit)
+        -   Téléchargez et installez MinGW.
+        -   Ajoutez le chemin du dossier `bin` à vos variables d'environnement.
 -   **Installer Ceedling** :
 
     `gem install ceedling`
@@ -230,8 +150,8 @@ Pour plus de détails sur ce problème, vous pouvez consulter la discussion suiv
     
 4. **Prendre des captures d'écran de votre terminal** :
 
--   Après la création du projet (structure du dossier).
--   Après l'exécution des tests (résultats des tests).
+    -   Après la création du projet (structure du dossier): `tree`
+    -   Après l'exécution des tests (résultats des tests).
 
 5. **Créer un dossier** `/img` dans le répertoire du projet et y ajouter les captures d'écran.
 
