@@ -1,0 +1,19 @@
+---
+:source:
+  :path: test
+  :file: test_notifier.c
+:successes:
+- :test: test_notify_threshold_exceeded_triggers_alert
+  :line: 9
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout:
+- 'ALERT: Value 120 exceeds the threshold!'
+:time: 0.001109830000132206

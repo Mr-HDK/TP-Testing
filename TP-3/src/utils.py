@@ -5,8 +5,12 @@ def is_valid_temperature(temperature):
     Vérifie si la température est dans la plage valide en utilisant les seuils configurés.
     """
     try:
-        temperature = int(temperature)  # Ensure temperature is an integer
-    except ValueError:
-        return False  # Invalid input
-
-    return MIN_TEMP_THRESHOLD <= temperature <= MAX_TEMP_THRESHOLD
+        # Assurez-vous que la température est un nombre valide
+        temperature = float(temperature)
+    except (ValueError, TypeError):
+        return False  # Entrée invalide
+    
+    # Vérifie si la température est en dehors des seuils
+    if temperature < MIN_TEMP_THRESHOLD or temperature > MAX_TEMP_THRESHOLD:
+        return False  # Température hors des limites
+    return True  # Température valide

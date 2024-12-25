@@ -29,4 +29,3 @@ Test Température Critique
     [Documentation]    Vérifie la gestion des températures critiques.
     ${temperature}=    Simuler Lecture Température    -10
     Température Doit ÊTre Valide    ${temperature}
-

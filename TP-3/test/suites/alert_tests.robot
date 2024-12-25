@@ -7,7 +7,7 @@ Test Notification Température Très Haute
     [Documentation]    Vérifie qu'une notification est envoyée pour une température critique (150°C).
     ${temperature}=    Set Variable    150
     ${valid}=    Is Valid Temperature    ${temperature}
-    Should Not Be True    ${valid}    La température aurait dû être invalide.
+    Should Be Equal As Numbers    ${valid}    0    La température 150°C devrait être invalide.
 
     Tester Notification Température Hors Plage    ${temperature}
     Log    Notification envoyée pour température critique: ${temperature}°C
@@ -27,5 +27,5 @@ Test Aucune Notification Température Normale
     ${valid}=    Is Valid Temperature    ${temperature}
     Should Be True    ${valid}    La température devrait être valide.
 
-    Run Keyword If    ${temperature} < 0 or ${temperature} > 100    Tester Notification Température Hors Plage    ${temperature}
-    ELSE    Log    Aucune notification nécessaire pour ${temperature}°C
+    Run Keyword If    not ${temperature} < 0 or ${temperature} > 100    Log    Aucune notification nécessaire pour ${temperature}°C
+    ...                   ELSE    Tester Notification Température Hors Plage    ${temperature}

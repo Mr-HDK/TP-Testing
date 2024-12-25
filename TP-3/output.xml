@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-12-25T11:14:07.380385" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/home/rawaa/TP-Testing/TP-3/test">
+<suite id="s1-s1" name="Suites" source="/home/rawaa/TP-Testing/TP-3/test/suites">
+<suite id="s1-s1-s1" name="Alert Tests" source="/home/rawaa/TP-Testing/TP-3/test/suites/alert_tests.robot">
+<test id="s1-s1-s1-t1" name="Test Notification Température Très Haute" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.400837" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.400729" elapsed="0.000133"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.401074" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.400971" elapsed="0.000119"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.401325" level="INFO">Argument types are:
+&lt;class 'bool'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${valid}</arg>
+<arg>0</arg>
+<arg>La température 150°C devrait être invalide.</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.401181" elapsed="0.000187"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-25T11:14:07.402066" level="INFO">Notification: Alerte : Température hors plage (150°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.401927" elapsed="0.000181"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.402327" level="INFO">Notification envoyée avec succès pour 150°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.402208" elapsed="0.000163"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.401575" elapsed="0.000858"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.402684" level="INFO">Notification envoyée pour température critique: 150°C</msg>
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.402562" elapsed="0.000158"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique (150°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.400164" elapsed="0.002673"/>
+</test>
+<test id="s1-s1-s1-t2" name="Test Notification Température Très Basse" line="15">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.403575" level="INFO">${temperature} = -50</msg>
+<var>${temperature}</var>
+<arg>-50</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.403431" elapsed="0.000168"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.403931" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.403740" elapsed="0.000385"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.404262" elapsed="0.000185"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-25T11:14:07.405078" level="INFO">Notification: Alerte : Température hors plage (-50°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.404949" elapsed="0.000167"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.405334" level="INFO">Notification envoyée avec succès pour -50°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.405217" elapsed="0.000158"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.404659" elapsed="0.000773"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.405654" level="INFO">Notification envoyée pour température critique: -50°C</msg>
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.405550" elapsed="0.000138"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique basse (-50°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.403032" elapsed="0.002780"/>
+</test>
+<test id="s1-s1-s1-t3" name="Test Aucune Notification Température Normale" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.406477" level="INFO">${temperature} = 30</msg>
+<var>${temperature}</var>
+<arg>30</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.406362" elapsed="0.000139"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.406779" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.406625" elapsed="0.000172"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.406921" elapsed="0.000137"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.407593" level="INFO">Aucune notification nécessaire pour 30°C</msg>
+<arg>Aucune notification nécessaire pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.407476" elapsed="0.000159"/>
+</kw>
+<arg>not ${temperature} &lt; 0 or ${temperature} &gt; 100</arg>
+<arg>Log</arg>
+<arg>Aucune notification nécessaire pour ${temperature}°C</arg>
+<arg>ELSE</arg>
+<arg>Tester Notification Température Hors Plage</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.407191" elapsed="0.000491"/>
+</kw>
+<doc>Vérifie qu'aucune notification n'est envoyée pour une température normale (30°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.405981" elapsed="0.001825"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.396170" elapsed="0.011982"/>
+</suite>
+<suite id="s1-s1-s2" name="Functional Tests" source="/home/rawaa/TP-Testing/TP-3/test/suites/functional_tests.robot">
+<test id="s1-s1-s2-t1" name="Test Action Chauffage à Température Très Basse" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.412011" level="INFO">${temperature} = -5</msg>
+<var>${temperature}</var>
+<arg>-5</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.411823" elapsed="0.000215"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.412351" level="INFO">Température utilisée: -5</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.412168" elapsed="0.000216"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.412869" level="INFO">${temperature} = -5.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.412748" elapsed="0.000143"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.413036" level="INFO">${action} = Heater activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.412954" elapsed="0.000095"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.413082" elapsed="0.000038"/>
+</return>
+<msg time="2024-12-25T11:14:07.413198" level="INFO">${action} = Heater activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.412549" elapsed="0.000663"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Heater activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.413293" elapsed="0.000100"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.413546" level="INFO">Action prise: Heater activated</msg>
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.413469" elapsed="0.000100"/>
+</kw>
+<doc>Vérifie que le chauffage s'active pour une température très basse (-5°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.411286" elapsed="0.002355"/>
+</test>
+<test id="s1-s1-s2-t2" name="Test Action Température Optimale" line="15">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.414245" level="INFO">${temperature} = 22</msg>
+<var>${temperature}</var>
+<arg>22</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.413981" elapsed="0.000280"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.414422" level="INFO">Température utilisée: 22</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.414346" elapsed="0.000102"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.414815" level="INFO">${temperature} = 22.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.414716" elapsed="0.000113"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.414962" level="INFO">${action} = Temperature is in optimal range</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.414884" elapsed="0.000091"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.415004" elapsed="0.000027"/>
+</return>
+<msg time="2024-12-25T11:14:07.415100" level="INFO">${action} = Temperature is in optimal range</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.414565" elapsed="0.000547"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Temperature is in optimal range</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.415186" elapsed="0.000086"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.415401" level="INFO">Action prise: Temperature is in optimal range</msg>
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.415338" elapsed="0.000085"/>
+</kw>
+<doc>Vérifie qu'aucune action n'est prise pour une température optimale (22°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.413750" elapsed="0.001737"/>
+</test>
+<test id="s1-s1-s2-t3" name="Test Action Ventilateur à Température Élevée" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.415867" level="INFO">${temperature} = 80</msg>
+<var>${temperature}</var>
+<arg>80</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.415801" elapsed="0.000082"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.416069" level="INFO">Température utilisée: 80</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.415974" elapsed="0.000128"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.416526" level="INFO">${temperature} = 80.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.416414" elapsed="0.000126"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.416678" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.416599" elapsed="0.000092"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.416718" elapsed="0.000021"/>
+</return>
+<msg time="2024-12-25T11:14:07.416803" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.416215" elapsed="0.000601"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Fan activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.416891" elapsed="0.000086"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.417139" level="INFO">Action prise: Fan activated</msg>
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.417051" elapsed="0.000123"/>
+</kw>
+<doc>Vérifie que le ventilateur s'active pour une température élevée (80°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.415594" elapsed="0.001675"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.408567" elapsed="0.008923"/>
+</suite>
+<suite id="s1-s1-s3" name="Validation Tests" source="/home/rawaa/TP-Testing/TP-3/test/suites/validation_tests.robot">
+<test id="s1-s1-s3-t1" name="Test Validation Température Basse Limite" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.420501" level="INFO">${temperature} = 0</msg>
+<var>${temperature}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.420395" elapsed="0.000133"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.421201" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.420886" elapsed="0.000399"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.421384" elapsed="0.000173"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.420670" elapsed="0.000946"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.421841" level="INFO">Température validée avec succès: 0</msg>
+<arg>Température validée avec succès: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.421732" elapsed="0.000145"/>
+</kw>
+<doc>Vérifie que la température minimale limite (0°C) est valide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.420084" elapsed="0.001909"/>
+</test>
+<test id="s1-s1-s3-t2" name="Test Validation Température Haute Limite" line="12">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.422668" level="INFO">${temperature} = 100</msg>
+<var>${temperature}</var>
+<arg>100</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.422551" elapsed="0.000138"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.423207" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.423086" elapsed="0.000140"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.423305" elapsed="0.000153"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.422843" elapsed="0.000675"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.423739" level="INFO">Température validée avec succès: 100</msg>
+<arg>Température validée avec succès: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.423629" elapsed="0.000145"/>
+</kw>
+<doc>Vérifie que la température maximale limite (100°C) est valide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.422177" elapsed="0.001700"/>
+</test>
+<test id="s1-s1-s3-t3" name="Test Validation Température Hors Limite" line="18">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.424419" level="INFO">${temperature} = -20</msg>
+<var>${temperature}</var>
+<arg>-20</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.424327" elapsed="0.000111"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.424642" level="INFO">${result} = False</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.424534" elapsed="0.000126"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.424753" elapsed="0.000128"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.425104" level="INFO">Température correctement détectée comme invalide: -20</msg>
+<arg>Température correctement détectée comme invalide: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.424990" elapsed="0.000150"/>
+</kw>
+<doc>Vérifie qu'une température hors limite (-20°C) est invalide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.424031" elapsed="0.001213"/>
+</test>
+<test id="s1-s1-s3-t4" name="Test Validation Température Hors Plage Positive" line="25">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.425780" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.425689" elapsed="0.000109"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.425988" level="INFO">${result} = False</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.425887" elapsed="0.000118"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.426093" elapsed="0.000112"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.426398" level="INFO">Température correctement détectée comme invalide: 150</msg>
+<arg>Température correctement détectée comme invalide: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.426305" elapsed="0.000127"/>
+</kw>
+<doc>Vérifie qu'une température hors plage positive (150°C) est invalide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.425388" elapsed="0.001144"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.417841" elapsed="0.008903"/>
+</suite>
+<status status="PASS" start="2024-12-25T11:14:07.395586" elapsed="0.031597"/>
+</suite>
+<suite id="s1-s2" name="Test Capteur Defectueux" source="/home/rawaa/TP-Testing/TP-3/test/test_capteur_defectueux.robot">
+<test id="s1-s2-t1" name="Test Capteur Défectueux" line="10">
+<kw name="Simuler Capteur Défectueux" owner="keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.429770" level="INFO">Simulation capteur défectueux avec température : None</msg>
+<arg>Simulation capteur défectueux avec température : ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.429683" elapsed="0.000122"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:14:07.429840" elapsed="0.000026"/>
+</return>
+<msg time="2024-12-25T11:14:07.429940" level="INFO">${result} = None</msg>
+<var>${result}</var>
+<arg>${INVALID_TEMPERATURE}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.429485" elapsed="0.000468"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>${INVALID_TEMPERATURE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.430040" elapsed="0.000114"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.430277" level="INFO">Capteur défectueux ou température invalide détectée.</msg>
+<arg>Capteur défectueux ou température invalide détectée.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.430228" elapsed="0.000073"/>
+</kw>
+<doc>Ce test vérifie que le système gère un capteur défectueux (None ou température hors plage).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.429210" elapsed="0.001157"/>
+</test>
+<test id="s1-s2-t2" name="Test Capteur Valide" line="16">
+<kw name="Simuler Capteur Valide" owner="keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.431062" level="INFO">Simulation capteur valide avec température : 25</msg>
+<arg>Simulation capteur valide avec température : ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.430988" elapsed="0.000102"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:14:07.431189" elapsed="0.000032"/>
+</return>
+<msg time="2024-12-25T11:14:07.431312" level="INFO">${result} = 25</msg>
+<var>${result}</var>
+<arg>${VALID_TEMPERATURE}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.430677" elapsed="0.000654"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>${VALID_TEMPERATURE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.431437" elapsed="0.000137"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.431722" level="INFO">Capteur valide détecté avec succès.</msg>
+<arg>Capteur valide détecté avec succès.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.431665" elapsed="0.000093"/>
+</kw>
+<doc>Ce test vérifie que le système gère une température valide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.430468" elapsed="0.001400"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.427525" elapsed="0.004555"/>
+</suite>
+<suite id="s1-s3" name="Test E2E 45" source="/home/rawaa/TP-Testing/TP-3/test/test_e2e_45.robot">
+<test id="s1-s3-t1" name="Test Spécifique Température 45°C" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.434832" level="INFO">${temperature} = 45</msg>
+<var>${temperature}</var>
+<arg>45</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.434708" elapsed="0.000151"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.435247" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.435159" elapsed="0.000103"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.435325" elapsed="0.000121"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.434994" elapsed="0.000491"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.435859" level="INFO">${temperature} = 45.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.435753" elapsed="0.000120"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.436010" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.435932" elapsed="0.000092"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.436053" elapsed="0.000025"/>
+</return>
+<msg time="2024-12-25T11:14:07.436145" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.435604" elapsed="0.000554"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Fan activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.436236" elapsed="0.000101"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.436683" level="INFO">Pas de notification nécessaire pour 45°C</msg>
+<arg>Pas de notification nécessaire pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.436609" elapsed="0.000100"/>
+</kw>
+<arg>${temperature} &lt; 0 or ${temperature} &gt; 100</arg>
+<arg>Tester Notification Température Hors Plage</arg>
+<arg>${temperature}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Pas de notification nécessaire pour ${temperature}°C</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.436420" elapsed="0.000317"/>
+</kw>
+<doc>Vérifie que pour une température de 45°C :
+- La température est dans les seuils.
+- L'action attendue est "ventilateur activé".
+- Aucun message de notification n'est envoyé.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.434291" elapsed="0.002527"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.432307" elapsed="0.004689"/>
+</suite>
+<suite id="s1-s4" name="Test System" source="/home/rawaa/TP-Testing/TP-3/test/test_system.robot">
+<test id="s1-s4-t1" name="Test Lecture Température Valide Avec Aléatoire" line="6">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="Read Temperature" owner="sensor">
+<msg time="2024-12-25T11:14:07.439566" level="INFO">${temperature} = 0.33882304462365953</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<doc>Simule la lecture d'une température par un capteur.
+Retourne None pour simuler un capteur défectueux.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.439439" elapsed="0.000148"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:14:07.439625" elapsed="0.000025"/>
+</return>
+<msg time="2024-12-25T11:14:07.439728" level="INFO">${temperature} = 0.33882304462365953</msg>
+<var>${temperature}</var>
+<status status="PASS" start="2024-12-25T11:14:07.439280" elapsed="0.000470"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.440099" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.440011" elapsed="0.000102"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.440172" elapsed="0.000112"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.439856" elapsed="0.000464"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.440472" level="INFO">Température générée: 0.33882304462365953</msg>
+<arg>Température générée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.440394" elapsed="0.000103"/>
+</kw>
+<status status="PASS" start="2024-12-25T11:14:07.439046" elapsed="0.001529"/>
+</test>
+<test id="s1-s4-t2" name="Test Lecture Température Valide Avec Valeur Fixe" line="11">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="Read Temperature" owner="sensor">
+<msg time="2024-12-25T11:14:07.441104" level="INFO">${temperature} = 25.0</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<doc>Simule la lecture d'une température par un capteur.
+Retourne None pour simuler un capteur défectueux.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.441006" elapsed="0.000112"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:14:07.441146" elapsed="0.000021"/>
+</return>
+<msg time="2024-12-25T11:14:07.441231" level="INFO">${temperature} = 25.0</msg>
+<var>${temperature}</var>
+<arg>25</arg>
+<status status="PASS" start="2024-12-25T11:14:07.440869" elapsed="0.000375"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.441628" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.441472" elapsed="0.000173"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.441709" elapsed="0.000109"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.441333" elapsed="0.000521"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.442004" level="INFO">Température définie: 25.0</msg>
+<arg>Température définie: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.441928" elapsed="0.000109"/>
+</kw>
+<status status="PASS" start="2024-12-25T11:14:07.440679" elapsed="0.001439"/>
+</test>
+<test id="s1-s4-t3" name="Test Action Chauffage" line="16">
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.442647" level="INFO">${temperature} = 10.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.442540" elapsed="0.000123"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.442797" level="INFO">${action} = Heater activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.442719" elapsed="0.000091"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.442839" elapsed="0.000021"/>
+</return>
+<msg time="2024-12-25T11:14:07.442926" level="INFO">${result} = Heater activated</msg>
+<var>${result}</var>
+<arg>10</arg>
+<status status="PASS" start="2024-12-25T11:14:07.442398" elapsed="0.000540"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Heater activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.443014" elapsed="0.000091"/>
+</kw>
+<status status="PASS" start="2024-12-25T11:14:07.442221" elapsed="0.000955"/>
+</test>
+<test id="s1-s4-t4" name="Test Action Ventilateur" line="20">
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.443866" level="INFO">${temperature} = 40.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.443760" elapsed="0.000121"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T11:14:07.444017" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.443939" elapsed="0.000091"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T11:14:07.444057" elapsed="0.000020"/>
+</return>
+<msg time="2024-12-25T11:14:07.444142" level="INFO">${result} = Fan activated</msg>
+<var>${result}</var>
+<arg>40</arg>
+<status status="PASS" start="2024-12-25T11:14:07.443459" elapsed="0.000695"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Fan activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.444230" elapsed="0.000087"/>
+</kw>
+<status status="PASS" start="2024-12-25T11:14:07.443277" elapsed="0.001105"/>
+</test>
+<test id="s1-s4-t5" name="Test Notification Température Hors Plage" line="24">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.444761" level="INFO">${out_of_range_temp} = 120</msg>
+<var>${out_of_range_temp}</var>
+<arg>120</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.444641" elapsed="0.000136"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-25T11:14:07.445102" level="INFO">Notification: Alerte : Température hors plage (120°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.445025" elapsed="0.000102"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.445254" level="INFO">Notification envoyée avec succès pour 120°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.445185" elapsed="0.000093"/>
+</kw>
+<arg>${out_of_range_temp}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.444876" elapsed="0.000434"/>
+</kw>
+<status status="PASS" start="2024-12-25T11:14:07.444478" elapsed="0.000900"/>
+</test>
+<test id="s1-s4-t6" name="Test Température Critique" line="28">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="Read Temperature" owner="sensor">
+<msg time="2024-12-25T11:14:07.445923" level="INFO">${temperature} = -10.0</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<doc>Simule la lecture d'une température par un capteur.
+Retourne None pour simuler un capteur défectueux.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.445819" elapsed="0.000118"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:14:07.445966" elapsed="0.000022"/>
+</return>
+<msg time="2024-12-25T11:14:07.446055" level="INFO">${temperature} = -10.0</msg>
+<var>${temperature}</var>
+<arg>-10</arg>
+<status status="PASS" start="2024-12-25T11:14:07.445685" elapsed="0.000382"/>
+</kw>
+<kw name="Température Doit Être valide" owner="keywords">
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.446385" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.446300" elapsed="0.000099"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température ${temperature} devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.446456" elapsed="0.000112"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-25T11:14:07.446157" elapsed="0.000446"/>
+</kw>
+<doc>Vérifie la gestion des températures critiques.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.445476" elapsed="0.001195"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.437200" elapsed="0.009644"/>
+</suite>
+<suite id="s1-s5" name="Test Temperature Critical" source="/home/rawaa/TP-Testing/TP-3/test/test_temperature_critical.robot">
+<test id="s1-s5-t1" name="Test Température Critique" line="23">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.449144" level="INFO">${temperature} = 120</msg>
+<var>${temperature}</var>
+<arg>120</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.449036" elapsed="0.000134"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.449385" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.449286" elapsed="0.000113"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.449771" level="INFO">Argument types are:
+&lt;class 'bool'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${valid}</arg>
+<arg>0</arg>
+<arg>La température 120°C devrait être invalide.</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.449560" elapsed="0.000266"/>
+</kw>
+<doc>Vérifie que la température au-delà des seuils est invalide.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.448766" elapsed="0.001154"/>
+</test>
+<test id="s1-s5-t2" name="Test Notification Température Très Haute" line="29">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.450646" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.450313" elapsed="0.000363"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.450941" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.450787" elapsed="0.000177"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.451222" level="INFO">Argument types are:
+&lt;class 'bool'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${valid}</arg>
+<arg>0</arg>
+<arg>La température 150°C devrait être invalide.</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.451078" elapsed="0.000201"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique (150°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.450032" elapsed="0.001338"/>
+</test>
+<test id="s1-s5-t3" name="Test Notification Température Très Basse" line="35">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.451819" level="INFO">${temperature} = -50</msg>
+<var>${temperature}</var>
+<arg>-50</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.451721" elapsed="0.000118"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-25T11:14:07.452014" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.451921" elapsed="0.000107"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2024-12-25T11:14:07.452217" level="INFO">Argument types are:
+&lt;class 'bool'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${valid}</arg>
+<arg>0</arg>
+<arg>La température -50°C devrait être invalide.</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-25T11:14:07.452119" elapsed="0.000132"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température basse (-50°C).</doc>
+<status status="PASS" start="2024-12-25T11:14:07.451480" elapsed="0.000859"/>
+</test>
+<status status="PASS" start="2024-12-25T11:14:07.447048" elapsed="0.005481"/>
+</suite>
+<status status="PASS" start="2024-12-25T11:14:07.381100" elapsed="0.071730"/>
+</suite>
+<statistics>
+<total>
+<stat pass="22" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="22" fail="0" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="10" fail="0" skip="0" id="s1-s1" name="Suites">Test.Suites</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1-s1" name="Alert Tests">Test.Suites.Alert Tests</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1-s2" name="Functional Tests">Test.Suites.Functional Tests</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1-s3" name="Validation Tests">Test.Suites.Validation Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s2" name="Test Capteur Defectueux">Test.Test Capteur Defectueux</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="Test E2E 45">Test.Test E2E 45</stat>
+<stat pass="6" fail="0" skip="0" id="s1-s4" name="Test System">Test.Test System</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s5" name="Test Temperature Critical">Test.Test Temperature Critical</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

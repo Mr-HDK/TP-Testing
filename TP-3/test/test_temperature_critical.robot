@@ -18,3 +18,22 @@ Library     BuiltIn
 # - Le test doit échouer si une action est prise pour une température hors seuil.
 # - Une notification doit être loggée avec un message indiquant que la température est critique.
 # - Chaque étape doit être documentée par un log clair.
+
+*** Test Cases ***
+Test Température Critique
+    [Documentation]    Vérifie que la température au-delà des seuils est invalide.
+    ${temperature}=    Set Variable    120
+    ${valid}=    Is Valid Temperature    ${temperature}
+    Should Be Equal As Numbers    ${valid}    0    La température 120°C devrait être invalide.
+    
+Test Notification Température Très Haute
+    [Documentation]    Vérifie qu'une notification est envoyée pour une température critique (150°C).
+    ${temperature}=    Set Variable    150
+    ${valid}=    Is Valid Temperature    ${temperature}
+    Should Be Equal As Numbers    ${valid}    0    La température 150°C devrait être invalide.
+    
+Test Notification Température Très Basse
+    [Documentation]    Vérifie qu'une notification est envoyée pour une température basse (-50°C).
+    ${temperature}=    Set Variable    -50
+    ${valid}=    Is Valid Temperature    ${temperature}
+    Should Be Equal As Numbers    ${valid}    0    La température -50°C devrait être invalide.
