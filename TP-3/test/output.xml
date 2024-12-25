@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.10.9 on linux)" generated="2024-12-24T21:26:06.594059" rpa="false" schemaversion="5">
+<suite id="s1" name="Alert Tests" source="/home/hadil/TP-Testing/TP-3/test/suites/alert_tests.robot">
+<test id="s1-t1" name="Test Notification Température Très Haute" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.624538" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.624334" elapsed="0.000241"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-24T21:26:06.624959" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.624758" elapsed="0.000231"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.625145" elapsed="0.000212"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-24T21:26:06.626108" level="INFO">Notification: Alerte : Température hors plage (150°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.625941" elapsed="0.000220"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.626460" level="INFO">Notification envoyée avec succès pour 150°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.626298" elapsed="0.000214"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-24T21:26:06.625597" elapsed="0.001005"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.626915" level="INFO">Notification envoyée pour température critique: 150°C</msg>
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.626761" elapsed="0.000205"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique (150°C).</doc>
+<status status="PASS" start="2024-12-24T21:26:06.623312" elapsed="0.003809"/>
+</test>
+<test id="s1-t2" name="Test Notification Température Très Basse" line="15">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.627940" level="INFO">${temperature} = -50</msg>
+<var>${temperature}</var>
+<arg>-50</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.627781" elapsed="0.000190"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-24T21:26:06.628310" level="INFO">${valid} = False</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.628123" elapsed="0.000215"/>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.628489" elapsed="0.000188"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-24T21:26:06.629331" level="INFO">Notification: Alerte : Température hors plage (-50°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.629178" elapsed="0.000201"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.629654" level="INFO">Notification envoyée avec succès pour -50°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.629502" elapsed="0.000204"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="PASS" start="2024-12-24T21:26:06.628869" elapsed="0.000905"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.630068" level="INFO">Notification envoyée pour température critique: -50°C</msg>
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.629917" elapsed="0.000208"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique basse (-50°C).</doc>
+<status status="PASS" start="2024-12-24T21:26:06.627361" elapsed="0.002920"/>
+</test>
+<test id="s1-t3" name="Test Aucune Notification Température Normale" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.631135" level="INFO">${temperature} = 30</msg>
+<var>${temperature}</var>
+<arg>30</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.630981" elapsed="0.000182"/>
+</kw>
+<kw name="Is Valid Temperature" owner="utils">
+<msg time="2024-12-24T21:26:06.631561" level="INFO">${valid} = True</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<doc>Vérifie si la température est dans la plage valide en utilisant les seuils configurés.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.631377" elapsed="0.000212"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.631742" elapsed="0.000183"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-24T21:26:06.632638" level="INFO">Aucune notification nécessaire pour 30°C</msg>
+<arg>Aucune notification nécessaire pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.632487" elapsed="0.000203"/>
+</kw>
+<arg>${temperature} &lt; 0 or ${temperature} &gt; 100</arg>
+<arg>Tester Notification Température Hors Plage</arg>
+<arg>${temperature}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Aucune notification nécessaire pour ${temperature}°C</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-24T21:26:06.632098" elapsed="0.000651"/>
+</kw>
+<doc>Vérifie qu'aucune notification n'est envoyée pour une température normale (30°C).</doc>
+<status status="PASS" start="2024-12-24T21:26:06.630560" elapsed="0.002348"/>
+</test>
+<status status="PASS" start="2024-12-24T21:26:06.595066" elapsed="0.038237"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Alert Tests">Alert Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
