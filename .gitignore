@@ -1,4 +1,5 @@
 #build/
+<<<<<<< HEAD
 *.o
 *.exe
 *.gcda
@@ -7,3 +8,8 @@
 #.ceedling
 build/gcov/
 build/test/
+=======
+#*.o
+#*.exe
+#.ceedling
+>>>>>>> 71c171c2c7d777269ac98284c8b1ebe4a31df300

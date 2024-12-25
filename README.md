@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 # TP-Testing
 
 ## Description
 Ce dépôt contient une série de travaux pratiques destinés aux étudiants en ingénierie des systèmes embarqués (3ème année), visant à explorer les différentes phases du testing logiciel, allant des tests unitaires à l'intégration, et à appliquer ces principes à un projet réel.
 
 Les étudiants apprendront à utiliser des outils de test adaptés au développement en C pour des systèmes embarqués, avec un accent particulier sur les tests unitaires, d’intégration et fonctionnels.  
+=======
+# TP-Testing-3ISEOC
+
+## Description
+Ce dépôt contient une série de travaux pratiques destinés aux étudiants en ingénierie des systèmes embarqués (3ème année). L'objectif de ces TP est d'explorer différentes phases du testing logiciel, du niveau unitaire à l'intégration, puis d’analyser un projet réel pour appliquer les principes de test.
+
+Les étudiants apprendront à utiliser des outils de test adaptés au développement en C pour des systèmes embarqués, avec un accent particulier sur les tests unitaires, d’intégration et fonctionnels.
+>>>>>>> 71c171c2c7d777269ac98284c8b1ebe4a31df300
 
 ---
 
@@ -16,6 +25,7 @@ Les travaux pratiques ont pour objectif de :
 
 ---
 
+<<<<<<< HEAD
 ## Gestion de version avec Git
 
 Pour travailler efficacement sur ce TP et garder votre travail organisé, suivez les étapes ci-dessous. Ces étapes seront valables pour tous les TP. Vous devrez toujours travailler sur votre branche personnelle.
@@ -103,10 +113,13 @@ Vous pouvez me contacter par mail ou via [linkedin](https://www.linkedin.com/in/
 
 ---
 
+=======
+>>>>>>> 71c171c2c7d777269ac98284c8b1ebe4a31df300
 ## TP-1 : Introduction au Testing et Git
 
 Ce premier TP couvre :
 - La configuration de votre environnement de travail.
+<<<<<<< HEAD
 - Les bases et rappels sur les commandes Git essentielles, et la creation de votre branche de travail.
 - L'initialisation et l'exécution de tests unitaires dans un environnement C embarqué.
 
@@ -140,3 +153,15 @@ Voici un rappel des commandes Git essentielles que vous utiliserez pour ce proce
 | `git pull origin main` | Récupère les dernières modifications du dépôt distant et les fusionne avec votre branche locale. |
 
 </details>
+=======
+- Les bases et rappels sur les commandes Git essentielles.
+- L'initialisation et l'exécution de tests unitaires dans un environnement C embarqué.
+
+
+### Pour plus de détails sur le TP-1, veuillez consulter [le README du TP-1](TP-1/README.md).
+
+---
+
+## Remarques importantes
+- Assurez-vous de consulter le `README.md` du TP-1 pour obtenir des instructions détaillées sur l'installation et la configuration des outils nécessaires.
+>>>>>>> 71c171c2c7d777269ac98284c8b1ebe4a31df300
