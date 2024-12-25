@@ -19,12 +19,12 @@ Test Validation Température Hors Limite
     [Documentation]    Vérifie qu'une température hors limite (-20°C) est invalide.
     ${temperature}=    Set Variable    -20
     ${result}=    Is Valid Temperature    ${temperature}
-    Should Be False    ${result}    La température aurait dû être invalide.
+    Should Not Be True    ${result}    La température aurait dû être invalide.
     Log    Température correctement détectée comme invalide: ${temperature}
 
 Test Validation Température Hors Plage Positive
     [Documentation]    Vérifie qu'une température hors plage positive (150°C) est invalide.
     ${temperature}=    Set Variable    150
     ${result}=    Is Valid Temperature    ${temperature}
-    Should Be False    ${result}    La température aurait dû être invalide.
+    Should Not Be True    ${result}    La température aurait dû être invalide.
     Log    Température correctement détectée comme invalide: ${temperature}

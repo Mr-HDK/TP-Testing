@@ -1,8 +1,8 @@
 *** Settings ***
-Library    ../src/sensor.py
-Library    ../src/actuator.py
-Library    ../src/notifier.py
-Library    ../src/utils.py
+Library    ../../src/sensor.py
+Library    ../../src/actuator.py
+Library    ../../src/notifier.py
+Library    ../../src/utils.py
 Library    BuiltIn
 
 *** Keywords ***
