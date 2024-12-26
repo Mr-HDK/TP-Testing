@@ -8,3 +8,4 @@ int read_sensor(void) {
 bool is_valid_value(int value) {
     return value >= 0 && value <= 100;
 }
+

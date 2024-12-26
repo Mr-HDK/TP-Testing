@@ -1,10 +1,7 @@
 #include "unity.h"
 #include "sensor.h"
-#include <stdlib.h>
 
-void setUp(void) {      // good practice 
-    srand(42);          // Fixed seed for reproducibility
-} 
+void setUp(void) {} // good practice
 void tearDown(void) {} // good practice
 
 
@@ -22,3 +19,4 @@ void test_is_valid_value_identifies_correct_boundaries(void) {
     TEST_ASSERT_FALSE(is_valid_value(-1));  // Below lower boundary
     TEST_ASSERT_FALSE(is_valid_value(101)); // Above upper boundary
 }
+

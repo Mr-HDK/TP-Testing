@@ -1,0 +1,32 @@
+---
+:source:
+  :path: test
+  :file: test_system.c
+:successes:
+- :test: test_valid_sensor_value_workflow
+  :line: 22
+  :message: ''
+  :unity_test_time: 0
+- :test: test_invalid_sensor_value_workflow
+  :line: 59
+  :message: ''
+  :unity_test_time: 0
+- :test: test_boundary_conditions
+  :line: 93
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout:
+- 'Logged Value: 70'
+- 'ALERT: Value 120 exceeds the threshold!'
+- 'Logged Value: 10'
+- 'Logged Value: 210'
+- 'ALERT: Value -1 exceeds the threshold!'
+- 'ALERT: Value 101 exceeds the threshold!'
+:time: 0.006663166999715031
