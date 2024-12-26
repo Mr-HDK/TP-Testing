@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.8.10 on linux)" generated="2024-12-25T13:34:37.129867" rpa="false" schemaversion="5">
+<suite id="s1" name="Test System" source="/home/eddo/TP-Testing/TP-3/test/test_system.robot">
+<test id="s1-t1" name="Test Lecture Température Valide Avec Aléatoire" line="12">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="read_temperature">
+<msg time="2024-12-25T13:34:37.225169" level="FAIL">No keyword with name 'read_temperature' found.</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<status status="FAIL" start="2024-12-25T13:34:37.225121" elapsed="0.000101">No keyword with name 'read_temperature' found.</status>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="NOT RUN" start="2024-12-25T13:34:37.225300" elapsed="0.000020"/>
+</return>
+<var>${temperature}</var>
+<status status="FAIL" start="2024-12-25T13:34:37.220675" elapsed="0.004905">No keyword with name 'read_temperature' found.</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${temperature} &lt; 0 or ${temperature} &gt; 100</arg>
+<arg>Tester Notification Température Hors Plage</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-12-25T13:34:37.226288" elapsed="0.000036"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${temperature} &gt;= 0 and ${temperature} &lt;= 100</arg>
+<arg>Température Doit ÊTre Valide</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-12-25T13:34:37.226539" elapsed="0.000024"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température générée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T13:34:37.228717" elapsed="0.000023"/>
+</kw>
+<status status="FAIL" start="2024-12-25T13:34:37.217684" elapsed="0.011295">No keyword with name 'read_temperature' found.</status>
+</test>
+<test id="s1-t2" name="Test Lecture Température Valide Avec Valeur Fixe" line="21">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="read_temperature">
+<msg time="2024-12-25T13:34:37.233327" level="FAIL">No keyword with name 'read_temperature' found.</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<status status="FAIL" start="2024-12-25T13:34:37.233293" elapsed="0.000074">No keyword with name 'read_temperature' found.</status>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="NOT RUN" start="2024-12-25T13:34:37.233431" elapsed="0.000016"/>
+</return>
+<var>${temperature}</var>
+<arg>25</arg>
+<status status="FAIL" start="2024-12-25T13:34:37.229935" elapsed="0.003592">No keyword with name 'read_temperature' found.</status>
+</kw>
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<arg>${temperature}</arg>
+<status status="NOT RUN" start="2024-12-25T13:34:37.233765" elapsed="0.000025"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température définie: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-25T13:34:37.233956" elapsed="0.000020"/>
+</kw>
+<status status="FAIL" start="2024-12-25T13:34:37.229325" elapsed="0.004799">No keyword with name 'read_temperature' found.</status>
+</test>
+<test id="s1-t3" name="Test Action Chauffage" line="26">
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T13:34:37.237162" level="INFO">${temperature} = 10.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.236905" elapsed="0.000286"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T13:34:37.237460" level="INFO">${action} = Heater activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.237304" elapsed="0.000178"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T13:34:37.237531" elapsed="0.000076"/>
+</return>
+<msg time="2024-12-25T13:34:37.237736" level="INFO">${result} = Heater activated</msg>
+<var>${result}</var>
+<arg>10</arg>
+<status status="PASS" start="2024-12-25T13:34:37.236607" elapsed="0.001151"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Heater activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.237970" elapsed="0.000178"/>
+</kw>
+<status status="PASS" start="2024-12-25T13:34:37.234309" elapsed="0.003971"/>
+</test>
+<test id="s1-t4" name="Test Action Ventilateur" line="30">
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-25T13:34:37.241873" level="INFO">${temperature} = 40.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.241635" elapsed="0.000271"/>
+</kw>
+<kw name="Control Temperature" owner="actuator">
+<msg time="2024-12-25T13:34:37.242199" level="INFO">${action} = Fan activated</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<doc>Simule l'activation d'un chauffage ou d'un ventilateur en fonction de la température.
+Si la température est trop basse, active le chauffage.
+Si elle est trop haute, active le ventilateur.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.242036" elapsed="0.000188"/>
+</kw>
+<return>
+<value>${action}</value>
+<status status="PASS" start="2024-12-25T13:34:37.242278" elapsed="0.000036"/>
+</return>
+<msg time="2024-12-25T13:34:37.242436" level="INFO">${result} = Fan activated</msg>
+<var>${result}</var>
+<arg>40</arg>
+<status status="PASS" start="2024-12-25T13:34:37.241108" elapsed="0.001348"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Fan activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.244626" elapsed="0.000364"/>
+</kw>
+<status status="PASS" start="2024-12-25T13:34:37.238451" elapsed="0.006793"/>
+</test>
+<test id="s1-t5" name="Test Notification Température Hors Plage" line="34">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-12-25T13:34:37.246146" level="INFO">${out_of_range_temp} = 120</msg>
+<var>${out_of_range_temp}</var>
+<arg>120</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.245877" elapsed="0.000297"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<kw name="Send Notification" owner="notifier">
+<msg time="2024-12-25T13:34:37.249278" level="INFO">Notification: Alerte : Température hors plage (120°C)</msg>
+<arg>Alerte : Température hors plage (${temperature}°C)</arg>
+<doc>Envoie une notification pour alerter un problème de température.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.248998" elapsed="0.000351"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T13:34:37.249751" level="INFO">Notification envoyée avec succès pour 120°C</msg>
+<arg>Notification envoyée avec succès pour ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T13:34:37.249496" elapsed="0.000311"/>
+</kw>
+<arg>${out_of_range_temp}</arg>
+<status status="PASS" start="2024-12-25T13:34:37.246427" elapsed="0.003446"/>
+</kw>
+<status status="PASS" start="2024-12-25T13:34:37.245469" elapsed="0.004632"/>
+</test>
+<test id="s1-t6" name="Test Température Critique" line="38">
+<kw name="Simuler Lecture Température" owner="keywords">
+<kw name="read_temperature">
+<msg time="2024-12-25T13:34:37.257712" level="FAIL">No keyword with name 'read_temperature' found.</msg>
+<var>${temperature}</var>
+<arg>${custom_value}</arg>
+<status status="FAIL" start="2024-12-25T13:34:37.257678" elapsed="0.000079">No keyword with name 'read_temperature' found.</status>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="NOT RUN" start="2024-12-25T13:34:37.257942" elapsed="0.000020"/>
+</return>
+<var>${temperature}</var>
+<arg>2</arg>
+<status status="FAIL" start="2024-12-25T13:34:37.253830" elapsed="0.006720">No keyword with name 'read_temperature' found.</status>
+</kw>
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<arg>${temperature}</arg>
+<status status="NOT RUN" start="2024-12-25T13:34:37.260829" elapsed="0.000029"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<var>${result}</var>
+<arg>${temperature}</arg>
+<status status="NOT RUN" start="2024-12-25T13:34:37.261112" elapsed="0.000034"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Heater activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-12-25T13:34:37.261339" elapsed="0.000021"/>
+</kw>
+<doc>Vérifie la gestion des températures critiques.</doc>
+<status status="FAIL" start="2024-12-25T13:34:37.250386" elapsed="0.011184">No keyword with name 'read_temperature' found.</status>
+</test>
+<status status="FAIL" start="2024-12-25T13:34:37.133640" elapsed="0.131300"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="3" skip="0" id="s1" name="Test System">Test System</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-25T13:34:37.210281" level="ERROR">Error in file '/home/eddo/TP-Testing/TP-3/test/resources/keywords.robot' on line 2: Importing library '/home/eddo/TP-Testing/TP-3/src/sensor.py' failed: IndentationError: unexpected indent (sensor.py, line 2)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/eddo/TP-Testing/TP-3/src
+  /home/eddo/.local/bin
+  /home/eddo/catkin_ws/devel/lib/python3/dist-packages
+  /opt/ros/noetic/lib/python3/dist-packages
+  /usr/lib/python38.zip
+  /usr/lib/python3.8
+  /usr/lib/python3.8/lib-dynload
+  /home/eddo/.local/lib/python3.8/site-packages
+  /usr/local/lib/python3.8/dist-packages
+  /usr/lib/python3/dist-packages</msg>
+</errors>
+</robot>

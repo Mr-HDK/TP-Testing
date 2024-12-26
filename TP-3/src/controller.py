@@ -3,6 +3,8 @@ from notifier import send_notification
 from actuator import control_temperature
 from config import MIN_TEMP_THRESHOLD, MAX_TEMP_THRESHOLD
 
+CRITICAL_LOW_THRESHOLD = -10
+
 def process_temperature(temperature):
     """
     Processus de gestion de la température lue.
@@ -10,6 +12,10 @@ def process_temperature(temperature):
     Si elle est hors de la plage, envoie une alerte.
     Après traitement, active l'actuateur pour ajuster la température.
     """
+    if temperature <= CRITICAL_LOW_THRESHOLD:
+        send_notification(f"Température critique basse détectée : {temperature}°C")
+        return None, "Critical low temperature detected"	
+      	
     if MIN_TEMP_THRESHOLD <= temperature <= MAX_TEMP_THRESHOLD:
         # Traitement de la température si elle est dans la plage valide
         result = control_temperature(temperature)
