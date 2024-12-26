@@ -70,6 +70,14 @@ void test_addition(void) {
 
    ), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
 
+    UnityAssertEqualNumber((UNITY_INT)((4294967295)), (UNITY_INT)((addition(2147483647, -(-2147483648)))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(16), UNITY_DISPLAY_STYLE_INT);
+
+
+
 
 
 }
