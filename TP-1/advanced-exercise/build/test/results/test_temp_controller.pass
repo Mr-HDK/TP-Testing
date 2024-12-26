@@ -1,0 +1,54 @@
+---
+:source:
+  :path: test
+  :file: test_temp_controller.c
+:successes:
+- :test: test_check_temperature_should_return_1_when_too_hot
+  :line: 14
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_return_minus_1_when_too_cold
+<<<<<<< HEAD
+  :line: 19
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_return_0_when_normal
+  :line: 24
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_handle_exact_limits
+  :line: 31
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_handle_sensor_failure
+  :line: 41
+=======
+  :line: 20
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_return_0_when_normal
+  :line: 26
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_handle_exact_limits
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+- :test: test_check_temperature_should_handle_sensor_failure
+  :line: 44
+>>>>>>> d7a8a5521c3e7027c0be68dd87145f68b18e7b8e
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 5
+  :failed: 0
+  :ignored: 0
+:stdout: []
+<<<<<<< HEAD
+:time: 0.0011991359999683482
+=======
+:time: 0.001571526998304762
+>>>>>>> d7a8a5521c3e7027c0be68dd87145f68b18e7b8e
