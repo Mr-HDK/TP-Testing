@@ -1,5 +1,0 @@
----
-build/test/mocks/mock_temp_sensor.c:
-- TEST
-src/temp_controller.c:
-- TEST
