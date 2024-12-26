@@ -3,8 +3,9 @@
 
 int check_temperature(void) {
     int temperature = read_temperature_sensor();
-
-    if (temperature > 30) {
+    if (temperature < -40 || temperature > 125) {
+        return -2; // Échec du capteur
+    } else if (temperature > 30) {
         return 1; // Trop chaud
     } else if (temperature < 15) {
         return -1; // Trop froid
