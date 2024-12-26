@@ -18,30 +18,47 @@ void test_addition(void) {
 
 
 
+<<<<<<< HEAD
     UnityAssertEqualNumber((UNITY_INT)((-6)), (UNITY_INT)((addition(-3, -3))), (
+=======
+    UnityAssertEqualNumber((UNITY_INT)((8)), (UNITY_INT)((addition(4, 4))), (
+>>>>>>> 634ecb1e99d0c160230b7d33338256a701f92050
 
    ((void *)0)
 
    ), (UNITY_UINT)(8), UNITY_DISPLAY_STYLE_INT);
 
+<<<<<<< HEAD
     UnityAssertEqualNumber((UNITY_INT)((-7)), (UNITY_INT)((addition(0, -7))), (
+=======
+    UnityAssertEqualNumber((UNITY_INT)((11)), (UNITY_INT)((addition(-9, 20))), (
+>>>>>>> 634ecb1e99d0c160230b7d33338256a701f92050
 
    ((void *)0)
 
    ), (UNITY_UINT)(9), UNITY_DISPLAY_STYLE_INT);
 
+<<<<<<< HEAD
     UnityAssertEqualNumber((UNITY_INT)((-3)), (UNITY_INT)((addition(-5, 2))), (
+=======
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((addition(0, 0))), (
+>>>>>>> 634ecb1e99d0c160230b7d33338256a701f92050
 
    ((void *)0)
 
    ), (UNITY_UINT)(10), UNITY_DISPLAY_STYLE_INT);
 
+<<<<<<< HEAD
     UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((addition(0, 2))), (
+=======
+    UnityAssertEqualNumber((UNITY_INT)((-6)), (UNITY_INT)((addition(-3, -3))), (
+>>>>>>> 634ecb1e99d0c160230b7d33338256a701f92050
 
    ((void *)0)
 
    ), (UNITY_UINT)(11), UNITY_DISPLAY_STYLE_INT);
 
+<<<<<<< HEAD
     UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((addition(0, 0))), (
 
    ((void *)0)
@@ -50,4 +67,6 @@ void test_addition(void) {
 
 
 
+=======
+>>>>>>> 634ecb1e99d0c160230b7d33338256a701f92050
 }

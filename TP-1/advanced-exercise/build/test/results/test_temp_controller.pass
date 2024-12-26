@@ -8,27 +8,23 @@
   :message: ''
   :unity_test_time: 0
 - :test: test_check_temperature_should_return_minus_1_when_too_cold
-  :line: 22
+  :line: 21
   :message: ''
   :unity_test_time: 0
 - :test: test_check_temperature_should_return_0_when_normal
-  :line: 27
+  :line: 26
   :message: ''
   :unity_test_time: 0
 - :test: test_check_temperature_should_handle_exact_limits
-  :line: 34
-  :message: ''
-  :unity_test_time: 0
-- :test: test_check_temperature_should_handle_sensor_failure
-  :line: 49
+  :line: 33
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 1.4281759000150487
+:time: 1.1300596999935806
