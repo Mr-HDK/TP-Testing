@@ -11,6 +11,4 @@ void test_notify_threshold_exceeded_triggers_alert(void) {
 
     log_data_Expect(threshold_exceed_value); // Expectation for logging
     notify_threshold_exceeded(threshold_exceed_value);
-
-    // Additional verification can include mocking `printf` output.
 }

@@ -28,4 +28,4 @@ Test Aucune Notification Température Normale
     Should Be True    ${valid}    La température devrait être valide.
 
     Run Keyword If    ${temperature} < 0 or ${temperature} > 100    Tester Notification Température Hors Plage    ${temperature}
-    ELSE    Log    Aucune notification nécessaire pour ${temperature}°C
+    #ELSE    Log    Aucune notification nécessaire pour ${temperature}°C
