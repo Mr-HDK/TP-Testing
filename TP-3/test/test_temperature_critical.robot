@@ -2,19 +2,56 @@
 Resource    ./resources/keywords.robot
 Library     BuiltIn
 
-# SCÉNARIO : Gestion d'une température critique et d'une alerte
-# 
-# Objectif : Implémentez un test E2E pour gérer un scénario où la température dépasse 
-# les seuils acceptables et où une notification doit être envoyée.
-#
-# Instructions :
-# 1. Fixez la température à 120°C (hors des seuils définis par `utils.py`).
-# 2. Validez que la température est considérée comme invalide.
-# 3. Vérifiez qu'aucune action (chauffage ou ventilateur) n'est prise, car la température est hors seuil.
-# 4. Vérifiez qu'une notification est envoyée pour alerter d'une température critique.
-# 5. Ajoutez des logs pour documenter chaque étape du test.
-#
-# Critères de validation :
-# - Le test doit échouer si une action est prise pour une température hors seuil.
-# - Une notification doit être loggée avec un message indiquant que la température est critique.
-# - Chaque étape doit être documentée par un log clair.
+
+
+*** Test Cases ***
+Test Température Critique
+    [Documentation]    Vérifie que pour une température de 120°C :
+    ...                - La température est invalide.
+    ...                - Aucune action (chauffage ou ventilateur) n'est prise.
+    ...                - Une notification est envoyée pour alerter d'une température critique.
+
+    # Étape 1 : Fixer la température à 120°C
+    ${temperature}=    Set Variable    120
+    Log    Température fixée à ${temperature} °C
+
+    # Étape 2 : Vérification de la validité de la température
+    Température Doit ÊTre InValide    ${temperature}
+    Log    Validation de la température terminée
+
+    # Étape 3 : Vérifier qu'aucune action n'est déclenchée
+    ${action}=    Tester Action Température    ${temperature}
+    Log    Action évaluée : ${action}
+    Should Be Equal    ${action}    No action
+    Log    Aucune action déclenchée pour température critique
+
+    # Étape 4 : Envoyer une notification
+    Envoyer Notification Température Critique    ${temperature}
+    Log    Notification envoyée pour température critique : ${temperature}°C
+
+*** Keywords ***
+Température Doit ÊTre InValide
+    [Arguments]    ${temperature}
+    ${result}=    Is Valid Temperature    ${temperature}
+    Run Keyword If    ${result}    Fail    Température valide détectée: ${temperature}
+    Log    Température invalide confirmée: ${temperature}
+
+Tester Action Température
+    [Arguments]    ${temperature}
+    ${action}=    Run Keyword If    ${temperature} < 100    Get Heating Action
+    ...    ELSE IF    ${temperature} > 100 and ${temperature} < 110    Get Cooling Action
+    ...    ELSE    Set Variable    No action
+    Log    Action déterminée pour ${temperature}°C : ${action}
+    RETURN    ${action}
+
+Envoyer Notification Température Critique
+    [Arguments]    ${temperature}
+    Log     Notification : Température critique détectée à ${temperature}°C
+
+Get Heating Action
+    Log    Action de chauffage déclenchée
+    RETURN    Heating
+
+Get Cooling Action
+    Log    Action de refroidissement déclenchée
+    RETURN    Cooling

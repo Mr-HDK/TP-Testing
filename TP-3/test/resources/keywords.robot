@@ -1,8 +1,8 @@
 *** Settings ***
-Library    ../src/sensor.py
-Library    ../src/actuator.py
-Library    ../src/notifier.py
-Library    ../src/utils.py
+Library    C:/Users/BALKIS/TP-Testing/TP-3/src/sensor.py
+Library    C:/Users/BALKIS/TP-Testing/TP-3/src/utils.py
+Library    C:/Users/BALKIS/TP-Testing/TP-3/src/actuator.py
+Library    C:/Users/BALKIS/TP-Testing/TP-3/src/notifier.py
 Library    BuiltIn
 
 *** Keywords ***
@@ -27,3 +27,5 @@ Tester Notification Température Hors Plage
     [Arguments]    ${temperature}
     Send Notification    Alerte : Température hors plage (${temperature}°C)
     Log    Notification envoyée avec succès pour ${temperature}°C
+
+

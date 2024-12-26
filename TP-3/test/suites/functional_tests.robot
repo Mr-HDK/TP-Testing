@@ -29,3 +29,5 @@ Test Action Ventilateur à Température Élevée
     ${action}=    Tester Action Température    ${temperature}
     Should Be Equal    ${action}    Fan activated
     Log    Action prise: ${action}
+
+

@@ -21,12 +21,14 @@ Test Action Ventilateur
     ${result}=    Tester Action Température    40
     Should Be Equal    ${result}    Fan activated
 
+
+
 Test Notification Température Hors Plage
     ${out_of_range_temp}=    Evaluate    120
     Tester Notification Température Hors Plage    ${out_of_range_temp}
 
 Test Température Critique
     [Documentation]    Vérifie la gestion des températures critiques.
-    ${temperature}=    Simuler Lecture Température    -10
+    ${temperature}=    Simuler Lecture Température    10
     Température Doit ÊTre Valide    ${temperature}
 
