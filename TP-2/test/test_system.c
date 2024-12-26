@@ -27,7 +27,7 @@ void tearDown(void) {}
  */
 void test_valid_sensor_value_workflow(void) {
     for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
-        int sensor_value = rand() % 99 + 1;
+        int sensor_value = read_sensor;
         if (sensor_value > 0 && sensor_value < 100) {
             int processed_value = process_data(sensor_value); // Traitez la valeur du capteur
             log_data(processed_value); // Enregistrez la donnée traitée
@@ -35,7 +35,7 @@ void test_valid_sensor_value_workflow(void) {
         }
     }
 }
-
+ 
 /* Test : Workflow avec des valeurs invalides
  * Objectif : Vérifier que les valeurs hors plage déclenchent une alerte.
  */
@@ -67,3 +67,4 @@ void test_boundary_conditions(void) {
         }
     }
 }
+

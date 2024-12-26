@@ -23,26 +23,6 @@
   :failed: 0
   :ignored: 0
 :stdout:
-- 'Logged Value: 164'
-- 'Logged Value: 20'
-- 'Logged Value: 110'
-- 'Logged Value: 130'
-- 'Logged Value: 102'
-- 'Logged Value: 30'
-- 'Logged Value: 204'
-- 'Logged Value: 54'
-- 'Logged Value: 148'
-- 'Logged Value: 184'
-- 'Logged Value: 84'
-- 'Logged Value: 116'
-- 'Logged Value: 26'
-- 'Logged Value: 152'
-- 'Logged Value: 130'
-- 'Logged Value: 130'
-- 'Logged Value: 16'
-- 'Logged Value: 112'
-- 'Logged Value: 202'
-- 'Logged Value: 160'
 - 'Logged Value: 125'
 - 'ALERT: Value 125 exceeds the threshold!'
 - 'Logged Value: -50'
@@ -73,4 +53,4 @@
 - 'ALERT: Value 101 exceeds the threshold!'
 - 'Logged Value: 149'
 - 'ALERT: Value 149 exceeds the threshold!'
-:time: 0.018057499999486026
+:time: 0.05933640000876039
