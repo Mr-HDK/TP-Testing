@@ -3,66 +3,102 @@
 #include "controller.h"
 #include "notifier.h"
 #include "utils.h"
+#include "mock_sensor.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Instructions :
- * 1. Complétez les parties manquantes (indiquées par `/* À COMPLÉTER * /`).
- * 2. Lisez les commentaires pour comprendre le but de chaque test.
- * 3. Exécutez `ceedling test:all` pour valider vos réponses.
- */
-
 void setUp(void) {
-    /* À COMPLÉTER : Initialiser le générateur de nombres 
-     * aléatoires pour des résultats reproductibles (seed)
-     */
-    }
-void tearDown(void) {}
+    mock_sensor_Init();
+}
 
+void tearDown(void) {
+    mock_sensor_Destroy();
+}
 
-/* Test : Workflow avec des valeurs valides (hors bordures)
- * Objectif : Vérifier que les valeurs valides générées par `read_sensor`
- * sont correctement traitées par `process_data`.
+/*
+ * Test : Workflow avec une valeur capteur valide
+ * Objectif : Valider le traitement complet des données valides.
  */
 void test_valid_sensor_value_workflow(void) {
-    for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
-        int sensor_value = /* À COMPLÉTER */;
-        if (sensor_value > 0 && sensor_value < 100) {
-            int processed_value = process_data(/* À COMPLÉTER */); // Traitez la valeur du capteur
-            log_data(/* À COMPLÉTER */); // Enregistrez la donnée traitée
-            TEST_ASSERT_EQUAL_INT(/* À COMPLÉTER avec l'équation du traitement */, processed_value); // Vérifiez que le traitement est correct
-        }
+    int simulated_sensor_value = 50;  // Valeur simulée
+    int expected_processed_value = simulated_sensor_value * 2 + 10;
+
+    read_sensor_ExpectAndReturn(simulated_sensor_value);
+
+    int sensor_value = read_sensor();
+    TEST_ASSERT(sensor_value >= 0 && sensor_value < 150);
+
+    if (is_valid_value(sensor_value)) {
+        int processed_value = process_data(sensor_value);
+
+        log_data(processed_value);
+        TEST_ASSERT_EQUAL(expected_processed_value, processed_value);
+    } else {
+        TEST_FAIL_MESSAGE("Sensor value should be valid for this test");
     }
 }
 
-/* Test : Workflow avec des valeurs invalides
- * Objectif : Vérifier que les valeurs hors plage déclenchent une alerte.
+/*
+ * Test : Workflow avec une valeur capteur invalide
+ * Objectif : Valider le comportement en cas de dépassement de seuil.
  */
 void test_invalid_sensor_value_workflow(void) {
-    for (int i = 0; i < 20; i++) {  // Vous pouvez augmenter le nombre d'itérations pour plus de couverture
-        int sensor_value = /* À COMPLÉTER */;
-        if (/* À COMPLÉTER : condition pour les valeurs hors plage */) {
-            notify_threshold_exceeded(/* À COMPLÉTER */); // Déclenchez une alerte pour les valeurs invalides
-            TEST_ASSERT(/* À COMPLÉTER */); // Vérifiez que la condition d'invalidité est respectée
+    int simulated_invalid_value = 120;  // Valeur simulée invalide
+
+    read_sensor_ExpectAndReturn(simulated_invalid_value);
+    int sensor_value = read_sensor();
+
+    if (!is_valid_value(sensor_value)) {
+        notify_threshold_exceeded(sensor_value);
+        TEST_ASSERT_FALSE(is_valid_value(sensor_value));
+    } else {
+        TEST_FAIL_MESSAGE("Expected invalid sensor value for this test");
+    }
+}
+
+/*
+ * Test : Conditions limites
+ * Objectif : Tester les valeurs limites.
+ */
+void test_boundary_conditions(void) {
+    int boundary_values[] = {0, 100, -1, 101};
+
+    for (int i = 0; i < sizeof(boundary_values) / sizeof(boundary_values[0]); i++) {
+        int value = boundary_values[i];
+        read_sensor_ExpectAndReturn(value);
+        int sensor_value = read_sensor();
+
+        if (is_valid_value(sensor_value)) {
+            int processed_value = process_data(sensor_value);
+            log_data(processed_value);
+            TEST_ASSERT_EQUAL(sensor_value * 2 + 10, processed_value);
+            TEST_ASSERT(sensor_value == 0 || sensor_value == 100);
+        } else {
+            notify_threshold_exceeded(sensor_value);
+            TEST_ASSERT(sensor_value == -1 || sensor_value == 101);
         }
     }
 }
 
-/* Test : Conditions limites (bordures uniquement)
- * Objectif : Vérifier le comportement du système pour des valeurs critiques.
- * N.B : ici on contourne read_sensor pour injecter des valeurs précise.
- */
-void test_boundary_conditions(void) {
-    int boundary_values[] = {0, 100, -1, 101, 149}; // Bordures valides et invalides
-    for (int i = 0; i < sizeof(boundary_values) / sizeof(boundary_values[0]); i++) {
-        int sensor_value = /* À COMPLÉTER : une valeur parmi boundary_values */;
-        if (is_valid_value(/* À COMPLÉTER */)) {
-            int processed_value = process_data(/* À COMPLÉTER */);
-            log_data(/* À COMPLÉTER */);
-            TEST_ASSERT_EQUAL_INT(/* À COMPLÉTER  avec l'équation du traitement */, processed_value);
+// Nouveau test pour vérifier la chaîne complète de traitement
+void test_complete_processing_chain(void) {
+    // Test avec plusieurs valeurs
+    for (int i = 0; i < 10; i++) {
+        int test_value = 50 + i;
+        read_sensor_ExpectAndReturn(test_value);
+
+        int sensor_value = read_sensor();
+
+        if (is_valid_value(sensor_value)) {
+            int processed_value = process_data(sensor_value);
+            log_data(processed_value);
+
+            // Vérifications
+            TEST_ASSERT_EQUAL(sensor_value * 2 + 10, processed_value);
+            TEST_ASSERT(sensor_value >= 0 && sensor_value <= 100);
         } else {
-            notify_threshold_exceeded(/* À COMPLÉTER */);
-            TEST_ASSERT(/* À COMPLÉTER : Condition invalide */);
+            notify_threshold_exceeded(sensor_value);
+            TEST_ASSERT(sensor_value < 0 || sensor_value > 100);
         }
     }
 }
