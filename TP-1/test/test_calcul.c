@@ -14,7 +14,10 @@ void test_addition(void) {
     TEST_ASSERT_EQUAL_INT(2147483647, addition(2147483646, 1));  
     TEST_ASSERT_EQUAL_INT(-2147483648, addition(-2147483647, -1));
     TEST_ASSERT_EQUAL_INT(4294967295, addition(2147483647, -(-2147483648)));
+<<<<<<< HEAD
 
+=======
+>>>>>>> bab76acbc9095acd3e3c668928841054c901f11b
    
 }
 
