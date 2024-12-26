@@ -3,13 +3,14 @@
 #include "mock_temp_sensor.h"
 
 void setUp(void) {
-    // Initialisez les mocks "Bonne pratique"
-    // ??
+    // Réinitialisation des mocks
+    mock_temp_sensor_Init();
 }
 
 void tearDown(void) {
-    // Nettoiez les mocks "Bonne pratique"
-    // ??
+    // Nettoyage des mocks
+    mock_temp_sensor_Verify();
+    mock_temp_sensor_Destroy();
 }
 
 void test_check_temperature_should_return_1_when_too_hot(void) {
@@ -30,11 +31,11 @@ void test_check_temperature_should_return_0_when_normal(void) {
 
 // Testes supplémentaires : Cas limites exacts
 void test_check_temperature_should_handle_exact_limits(void) {
-    read_temperature_sensor_ExpectAndReturn(-40); // Limite basse
-    TEST_ASSERT_EQUAL(-1, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(15); // Limite basse
+    TEST_ASSERT_EQUAL(0, check_temperature());
 
-    read_temperature_sensor_ExpectAndReturn(125); // Limite haute
-    TEST_ASSERT_EQUAL(1, check_temperature());
+    read_temperature_sensor_ExpectAndReturn(30); // Limite haute
+    TEST_ASSERT_EQUAL(0, check_temperature());
 
     /* ++ Vous pouvez ajouter d'autres tests pour explorer les limites ++ */
 }

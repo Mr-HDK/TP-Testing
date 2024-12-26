@@ -83,10 +83,10 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_temp_controller.c");
-  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 15);
-  run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 20);
-  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 25);
-  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 32);
+  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 16);
+  run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 21);
+  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 26);
+  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 33);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();
