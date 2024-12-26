@@ -2,18 +2,23 @@
 Resource    ./resources/keywords.robot
 Library     BuiltIn
 
+*** Variables ***
+${valid_temperatures}    create list    25    30    50    80
+${invalid_temperatures}  create list    -10    110    150
+
 *** Test Cases ***
-Test Spécifique Température 45°C
-    [Documentation]    Vérifie que pour une température de 45°C :
-    ...                - La température est dans les seuils.
-    ...                - L'action attendue est "ventilateur activé".
-    ...                - Aucun message de notification n'est envoyé.
+Test Lecture Température Valide
+    [Template]  Loop Through
+    [Arguments]  ${valid_temperatures}
+    ${temperature}=  Set Variable  ${item}
+    Température Doit ÊTre Valide  ${temperature}
+    Log  Température générée: ${temperature}
 
-    ${temperature}=    Set Variable    45
-    Température Doit ÊTre Valide    ${temperature}
+Test Lecture Température Invalide
+    [Template]  Loop Through
+    [Arguments]  ${invalid_temperatures}
+    ${temperature}=  Set Variable  ${item}
+    Température Doit ÊTre Invalide  ${temperature}  # Add this keyword
+    Log  Température générée: ${temperature} 
 
-    ${action}=    Tester Action Température    ${temperature}
-    Should Be Equal    ${action}    Fan activated
-
-    Run Keyword If    ${temperature} < 0 or ${temperature} > 100    Tester Notification Température Hors Plage    ${temperature}
-    ...    ELSE    Log    Pas de notification nécessaire pour ${temperature}°C
+# ... other tests ...

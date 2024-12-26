@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.8.0 on win32)" generated="2024-12-26T23:23:40.739555" rpa="false" schemaversion="5">
+<suite id="s1" name="Suites" source="C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\suites">
+<suite id="s1-s1" name="Alert Tests" source="C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\suites\alert_tests.robot">
+<test id="s1-s1-t1" name="Test Notification Température Très Haute" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.790697" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.789662" elapsed="0.001035"/>
+</kw>
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.791949" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.791949" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.791949" elapsed="0.000000"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<arg>${temperature}</arg>
+<status status="NOT RUN" start="2024-12-26T23:23:40.793274" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.793274" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique (150°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.788585" elapsed="0.004689">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<test id="s1-s1-t2" name="Test Notification Température Très Basse" line="15">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.794280" level="INFO">${temperature} = -50</msg>
+<var>${temperature}</var>
+<arg>-50</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.794280" elapsed="0.000000"/>
+</kw>
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.794280" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.794280" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.794280" elapsed="0.000000"/>
+</kw>
+<kw name="Tester Notification Température Hors Plage" owner="keywords">
+<arg>${temperature}</arg>
+<status status="NOT RUN" start="2024-12-26T23:23:40.794280" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Notification envoyée pour température critique: ${temperature}°C</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.794280" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie qu'une notification est envoyée pour une température critique basse (-50°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.794280" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<test id="s1-s1-t3" name="Test Aucune Notification Température Normale" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.801295" level="INFO">${temperature} = 30</msg>
+<var>${temperature}</var>
+<arg>30</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.794280" elapsed="0.007015"/>
+</kw>
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.801295" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${valid}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.801295" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${valid}</arg>
+<arg>La température devrait être valide.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.801295" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${temperature} &lt; 0 or ${temperature} &gt; 100</arg>
+<arg>Tester Notification Température Hors Plage</arg>
+<arg>${temperature}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.801295" elapsed="0.000000"/>
+</kw>
+<error>
+<value>ELSE</value>
+<value>Log</value>
+<value>Aucune notification nécessaire pour ${temperature}°C</value>
+<status status="NOT RUN" start="2024-12-26T23:23:40.801295" elapsed="0.000000"/>
+</error>
+<doc>Vérifie qu'aucune notification n'est envoyée pour une température normale (30°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.794280" elapsed="0.007015">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<status status="FAIL" start="2024-12-26T23:23:40.770816" elapsed="0.037056"/>
+</suite>
+<suite id="s1-s2" name="Functional Tests" source="C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\suites\functional_tests.robot">
+<test id="s1-s2-t1" name="Test Action Chauffage à Température Très Basse" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.817386" level="INFO">${temperature} = -5</msg>
+<var>${temperature}</var>
+<arg>-5</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.817386" level="INFO">Température utilisée: -5</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.817386" level="INFO">${temperature} = -5.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Control Temperature">
+<msg time="2024-12-26T23:23:40.817386" level="FAIL">No keyword with name 'Control Temperature' found.</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.817386" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<return>
+<value>${action}</value>
+<status status="NOT RUN" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</return>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.817386" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Heater activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie que le chauffage s'active pour une température très basse (-5°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.817386" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</test>
+<test id="s1-s2-t2" name="Test Action Température Optimale" line="15">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.817386" level="INFO">${temperature} = 22</msg>
+<var>${temperature}</var>
+<arg>22</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.817386" level="INFO">Température utilisée: 22</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.817386" elapsed="0.000000"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.833059" level="INFO">${temperature} = 22.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.833059" elapsed="0.000000"/>
+</kw>
+<kw name="Control Temperature">
+<msg time="2024-12-26T23:23:40.833059" level="FAIL">No keyword with name 'Control Temperature' found.</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.833059" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<return>
+<value>${action}</value>
+<status status="NOT RUN" start="2024-12-26T23:23:40.833059" elapsed="0.000000"/>
+</return>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.817386" elapsed="0.015673">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Temperature is in optimal range</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.833059" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.833059" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie qu'aucune action n'est prise pour une température optimale (22°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.817386" elapsed="0.015673">No keyword with name 'Control Temperature' found.</status>
+</test>
+<test id="s1-s2-t3" name="Test Action Ventilateur à Température Élevée" line="24">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.849050" level="INFO">${temperature} = 80</msg>
+<var>${temperature}</var>
+<arg>80</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.841528" elapsed="0.007522"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.864705" level="INFO">Température utilisée: 80</msg>
+<arg>Température utilisée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.864705" elapsed="0.000000"/>
+</kw>
+<kw name="Tester Action Température" owner="keywords">
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.880329" level="INFO">${temperature} = 80.0</msg>
+<var>${temperature}</var>
+<arg>${temperature}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.880329" elapsed="0.000000"/>
+</kw>
+<kw name="Control Temperature">
+<msg time="2024-12-26T23:23:40.880329" level="FAIL">No keyword with name 'Control Temperature' found.</msg>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.880329" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<return>
+<value>${action}</value>
+<status status="NOT RUN" start="2024-12-26T23:23:40.880329" elapsed="0.000000"/>
+</return>
+<var>${action}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.880329" elapsed="0.000000">No keyword with name 'Control Temperature' found.</status>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${action}</arg>
+<arg>Fan activated</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.880329" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Action prise: ${action}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.880329" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie que le ventilateur s'active pour une température élevée (80°C).</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.833059" elapsed="0.047270">No keyword with name 'Control Temperature' found.</status>
+</test>
+<status status="FAIL" start="2024-12-26T23:23:40.807872" elapsed="0.072457"/>
+</suite>
+<suite id="s1-s3" name="Validation Tests" source="C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\suites\validation_tests.robot">
+<test id="s1-s3-t1" name="Test Validation Température Basse Limite" line="6">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.902795" level="INFO">${temperature} = 0</msg>
+<var>${temperature}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.902795" elapsed="0.000000"/>
+</kw>
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.902795" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.902795" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Température non valide: ${temperature}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.902795" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.902795" elapsed="0.000000"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.902795" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée avec succès: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.902795" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie que la température minimale limite (0°C) est valide.</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.902795" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<test id="s1-s3-t2" name="Test Validation Température Haute Limite" line="12">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.920737" level="INFO">${temperature} = 100</msg>
+<var>${temperature}</var>
+<arg>100</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Température Doit ÊTre Valide" owner="keywords">
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.920737" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Température non valide: ${temperature}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température validée avec succès: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie que la température maximale limite (100°C) est valide.</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.918459" elapsed="0.002278">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<test id="s1-s3-t3" name="Test Validation Température Hors Limite" line="18">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.920737" level="INFO">${temperature} = -20</msg>
+<var>${temperature}</var>
+<arg>-20</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.920737" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température correctement détectée comme invalide: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie qu'une température hors limite (-20°C) est invalide.</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<test id="s1-s3-t4" name="Test Validation Température Hors Plage Positive" line="25">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T23:23:40.920737" level="INFO">${temperature} = 150</msg>
+<var>${temperature}</var>
+<arg>150</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Is Valid Temperature">
+<msg time="2024-12-26T23:23:40.920737" level="FAIL">No keyword with name 'Is Valid Temperature' found.</msg>
+<var>${result}</var>
+<arg>${temperature}</arg>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</kw>
+<kw name="Should Not Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>La température aurait dû être invalide.</arg>
+<doc>Fails if the given condition is true.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Température correctement détectée comme invalide: ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-26T23:23:40.920737" elapsed="0.000000"/>
+</kw>
+<doc>Vérifie qu'une température hors plage positive (150°C) est invalide.</doc>
+<status status="FAIL" start="2024-12-26T23:23:40.920737" elapsed="0.000000">No keyword with name 'Is Valid Temperature' found.</status>
+</test>
+<status status="FAIL" start="2024-12-26T23:23:40.880329" elapsed="0.040408"/>
+</suite>
+<status status="FAIL" start="2024-12-26T23:23:40.739555" elapsed="0.194692"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="10" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="10" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="0" fail="3" skip="0" id="s1-s1" name="Alert Tests">Suites.Alert Tests</stat>
+<stat pass="0" fail="3" skip="0" id="s1-s2" name="Functional Tests">Suites.Functional Tests</stat>
+<stat pass="0" fail="4" skip="0" id="s1-s3" name="Validation Tests">Suites.Validation Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-26T23:23:40.770816" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 2: Library '..\src\sensor.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.770816" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 3: Library '..\src\actuator.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.781361" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 4: Library '..\src\notifier.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.783587" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 5: Library '..\src\utils.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.807872" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 2: Library '..\src\sensor.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.807872" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 3: Library '..\src\actuator.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.807872" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 4: Library '..\src\notifier.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.817386" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 5: Library '..\src\utils.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.901397" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 2: Library '..\src\sensor.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.902795" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 3: Library '..\src\actuator.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.902795" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 4: Library '..\src\notifier.py' does not exist.</msg>
+<msg time="2024-12-26T23:23:40.902795" level="ERROR">Error in file 'C:\Users\KhaoulaBT\Desktop\TP_Testing\TP-Testing\TP-3\test\resources\keywords.robot' on line 5: Library '..\src\utils.py' does not exist.</msg>
+</errors>
+</robot>
