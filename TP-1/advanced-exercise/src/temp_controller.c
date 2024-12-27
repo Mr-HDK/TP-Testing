@@ -12,3 +12,4 @@ int check_temperature(void) {
         return 0; // Température normale
     }
 }
+
