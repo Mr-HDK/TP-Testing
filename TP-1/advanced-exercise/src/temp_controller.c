@@ -15,4 +15,8 @@ int check_temperature(void) {
     } else {
         return 0; // Température normale
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 06c241d2c36d83fef47e77fc1b525575cb3d5170
