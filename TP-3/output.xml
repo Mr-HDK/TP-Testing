@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-12-25T11:52:40.114953" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Capteur Defectueux" source="/home/rawaa/TP-Testing/TP-3/test/test_capteur_defectueux.robot">
+<test id="s1-t1" name="Test Capteur Défectueux" line="10">
+<kw name="Simuler Capteur Défectueux" owner="keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:52:40.135680" level="INFO">Simulation capteur défectueux avec température : None</msg>
+<arg>Simulation capteur défectueux avec température : ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.135548" elapsed="0.000171"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:52:40.135762" elapsed="0.000028"/>
+</return>
+<msg time="2024-12-25T11:52:40.135870" level="INFO">${result} = None</msg>
+<var>${result}</var>
+<arg>${INVALID_TEMPERATURE}</arg>
+<status status="PASS" start="2024-12-25T11:52:40.135219" elapsed="0.000665"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>${INVALID_TEMPERATURE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.135973" elapsed="0.000133"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:52:40.136237" level="INFO">Capteur défectueux ou température invalide détectée.</msg>
+<arg>Capteur défectueux ou température invalide détectée.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.136188" elapsed="0.000071"/>
+</kw>
+<doc>Ce test vérifie que le système gère un capteur défectueux (None ou température hors plage).</doc>
+<status status="PASS" start="2024-12-25T11:52:40.134704" elapsed="0.001642"/>
+</test>
+<test id="s1-t2" name="Test Capteur Valide" line="16">
+<kw name="Simuler Capteur Valide" owner="keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:52:40.137054" level="INFO">Simulation capteur valide avec température : 25</msg>
+<arg>Simulation capteur valide avec température : ${temperature}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.136866" elapsed="0.000218"/>
+</kw>
+<return>
+<value>${temperature}</value>
+<status status="PASS" start="2024-12-25T11:52:40.137116" elapsed="0.000023"/>
+</return>
+<msg time="2024-12-25T11:52:40.137215" level="INFO">${result} = 25</msg>
+<var>${result}</var>
+<arg>${VALID_TEMPERATURE}</arg>
+<status status="PASS" start="2024-12-25T11:52:40.136701" elapsed="0.000527"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>${VALID_TEMPERATURE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.137313" elapsed="0.000113"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-25T11:52:40.137563" level="INFO">Capteur valide détecté avec succès.</msg>
+<arg>Capteur valide détecté avec succès.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.137504" elapsed="0.000083"/>
+</kw>
+<doc>Ce test vérifie que le système gère une température valide.</doc>
+<status status="PASS" start="2024-12-25T11:52:40.136462" elapsed="0.001197"/>
+</test>
+<status status="PASS" start="2024-12-25T11:52:40.115693" elapsed="0.022185"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Test Capteur Defectueux">Test Capteur Defectueux</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
