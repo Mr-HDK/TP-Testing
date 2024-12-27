@@ -84,18 +84,11 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_temp_controller.c");
-  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 14);
-<<<<<<< HEAD
-  run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 19);
-  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 24);
-  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 31);
-  run_test(test_check_temperature_should_handle_sensor_failure, "test_check_temperature_should_handle_sensor_failure", 41);
-=======
+  run_test(test_check_temperature_should_return_1_when_too_hot, "test_check_temperature_should_return_1_when_too_hot", 15);
   run_test(test_check_temperature_should_return_minus_1_when_too_cold, "test_check_temperature_should_return_minus_1_when_too_cold", 20);
-  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 26);
-  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 33);
-  run_test(test_check_temperature_should_handle_sensor_failure, "test_check_temperature_should_handle_sensor_failure", 44);
->>>>>>> d7a8a5521c3e7027c0be68dd87145f68b18e7b8e
+  run_test(test_check_temperature_should_return_0_when_normal, "test_check_temperature_should_return_0_when_normal", 25);
+  run_test(test_check_temperature_should_handle_exact_limits, "test_check_temperature_should_handle_exact_limits", 57);
+  run_test(test_check_temperature_should_handle_sensor_failure, "test_check_temperature_should_handle_sensor_failure", 68);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();

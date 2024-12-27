@@ -16,4 +16,4 @@
   :ignored: 0
 :stdout:
 - 'ALERT: Value 120 exceeds the threshold!'
-:time: 0.001109830000132206
+:time: 0.0008864720002748072

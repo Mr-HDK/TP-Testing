@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 ---
 
->>>>>>> d7a8a5521c3e7027c0be68dd87145f68b18e7b8e
 # Notes:
 # Sample project C code is not presently written to produce a release artifact.
 # As such, release build options are disabled.
@@ -101,9 +98,4 @@
   :enabled:
     - stdout_pretty_tests_report
     - module_generator
-    - gcov
-<<<<<<< HEAD
 ...
-=======
-...
->>>>>>> d7a8a5521c3e7027c0be68dd87145f68b18e7b8e
