@@ -1,5 +1,5 @@
 #include "src/calcul.h"
-#include "bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
+#include "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.h"
 
 
 void test_addition(void) {
@@ -10,30 +10,54 @@ void test_addition(void) {
 
    ), (UNITY_UINT)(5), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((17)), (UNITY_INT)((addition(10, -7))), (
+    UnityAssertEqualNumber((UNITY_INT)((3)), (UNITY_INT)((addition(10, -7))), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(6), UNITY_DISPLAY_STYLE_INT);
 
-    UnityAssertEqualNumber((UNITY_INT)((11)), (UNITY_INT)((addition(-4, -7))), (
 
-   ((void *)0)
 
-   ), (UNITY_UINT)(7), UNITY_DISPLAY_STYLE_INT);
-
-    UnityAssertEqualNumber((UNITY_INT)((17)), (UNITY_INT)((addition(-10, -7))), (
+    UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((addition(0, 0))), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(8), UNITY_DISPLAY_STYLE_INT);
 
+    UnityAssertEqualNumber((UNITY_INT)((
 
+   (-0x7fffffff - 1)
 
+   )), (UNITY_INT)((addition(0x7fffffff
 
+   , 1))), (
 
+   ((void *)0)
 
+   ), (UNITY_UINT)(9), UNITY_DISPLAY_STYLE_INT);
 
+    UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((addition(0x7fffffff
 
+   , 
+
+   (-0x7fffffff - 1)
+
+   ))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(10), UNITY_DISPLAY_STYLE_INT);
+
+    UnityAssertEqualNumber((UNITY_INT)((0x7fffffff
+
+   )), (UNITY_INT)((addition(
+
+   (-0x7fffffff - 1)
+
+   , -1))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(11), UNITY_DISPLAY_STYLE_INT);
 
 }

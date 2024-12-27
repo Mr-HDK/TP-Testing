@@ -77,10 +77,10 @@
   :testfail: ".fail"
   :dependencies: ".d"
 :unity:
-  :vendor_path: C:/Users/med ammar bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/vendor
+  :vendor_path: "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/vendor"
   :defines: []
 :cmock:
-  :vendor_path: C:/Users/med ammar bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/vendor
+  :vendor_path: "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/vendor"
   :defines: []
   :includes: []
   :mock_prefix: mock_
@@ -99,14 +99,14 @@
   :verbosity: 3
   :unity_helper: false
 :cexception:
-  :vendor_path: C:/Users/med ammar bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/vendor
+  :vendor_path: "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/vendor"
   :defines: []
 :test_runner:
   :includes: []
   :file_suffix: _runner
 :tools:
   :test_compiler:
-    :executable: gcc.exe
+    :executable: gcc
     :name: default_test_compiler
     :stderr_redirect: :none
     :background_exec: :none
@@ -132,7 +132,7 @@
     :optional: false
     :arguments: []
   :test_linker:
-    :executable: gcc.exe
+    :executable: gcc
     :name: default_test_linker
     :stderr_redirect: :none
     :background_exec: :none
@@ -148,7 +148,7 @@
     - "${4}"
     - ''
   :test_file_preprocessor:
-    :executable: gcc.exe
+    :executable: gcc
     :name: default_test_file_preprocessor
     :stderr_redirect: :none
     :background_exec: :none
@@ -165,7 +165,7 @@
     - '"${1}"'
     - -o "${2}"
   :test_file_preprocessor_directives:
-    :executable: gcc.exe
+    :executable: gcc
     :name: default_test_file_preprocessor_directives
     :stderr_redirect: :none
     :background_exec: :none
@@ -181,7 +181,7 @@
     - '"${1}"'
     - -o "${2}"
   :test_includes_preprocessor:
-    :executable: gcc.exe
+    :executable: gcc
     :name: default_test_includes_preprocessor
     :stderr_redirect: :none
     :background_exec: :none
@@ -223,14 +223,20 @@
   :arguments: []
 :plugins:
   :load_paths:
-  - C:/Users/med ammar bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/lib/../plugins
-  :enabled: []
-  :display_raw_test_results: true
-:gcov:
-  :utilities:
-  - gcovr
-  :load_paths:
-  - C:/Users/med ammar bellalah/.local/share/gem/ruby/3.0.0/gems/ceedling-0.31.1/lib/../plugins
+  - "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/lib/../plugins"
   :enabled:
   - stdout_pretty_tests_report
   - module_generator
+  :display_raw_test_results: false
+  :stdout_pretty_tests_report_path: "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/lib/../plugins/stdout_pretty_tests_report"
+  :module_generator_path: "/home/kamel/.rbenv/versions/2.7.8/lib/ruby/gems/2.7.0/gems/ceedling-0.31.1/lib/../plugins/module_generator"
+:gcov:
+  :reports:
+  - HtmlDetailed
+  :gcovr:
+    :html_medium_threshold: 75
+    :html_high_threshold: 90
+:module_generator:
+  :project_root: "./"
+  :source_root: src/
+  :test_root: test/
